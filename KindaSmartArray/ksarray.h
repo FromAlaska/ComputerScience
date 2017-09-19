@@ -58,19 +58,19 @@ private:
   // Returns the number of items in the array.
   // Pre:
   // Post:
-  size();
+  ValType size();
 
   // begin
   // Returns the address of item 0 in the array (think “iterator”).
   // Pre:
   // Post:
-  begin();
+  ValType begin();
 
   // end
   // Returns the address of the item one-past the end of the array (think “iterator”).
   // Pre:
   // Post:
-  end();
+  ValType end();
 
   // Big Five, well at least three of the big five
   KSArray(KSArray &&)=delete;
