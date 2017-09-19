@@ -19,17 +19,17 @@ KSArray::KSArray(const KSArray & )
 
 // KSArray::size()
 // See header for documentation.
-KSArray::size()
+ValType KSArray::size()
 {}
 
 // KSArray::begin()
 // See header for documentation.
-KSArray::begin()
+ValType KSArray::begin()
 {}
 
 // KSArray::end()
 // See header for documentation.
-KSArray::end()
+ValType KSArray::end()
 {}
 
 // operator==
