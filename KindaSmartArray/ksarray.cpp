@@ -1,75 +1,96 @@
+// ksarray.cpp
+// Jim Samson
+// September 18, 2017
+//
+// For CS311 2017 Fall
+// Source File
+
 #include "ksarray.h"
 
-// KSArray::KSArray()
-// See header for documentation.
-KSArray::KSArray(ValType typeArray)
-{
-  _arraySize = typeArray;
-}
-
+// Destructor
 // KSArray::~KSArray()
 // See header for documentation.
-KSArray::~KSArray()
-{}
+template <class ValType>
+KSArray<ValType>::~KSArray()
+{
+  delete *_arrayPtr
+}
 
+// Copy Constructor
 // KSArray::KSArray(const KSArray &)
 // See header for documentation.
-KSArray::KSArray(const KSArray & )
+template <class ValType>
+KSArray<ValType>::KSArray(const KSArray<ValType> & other)
 {}
 
+// Returns number of items in the array.
 // KSArray::size()
 // See header for documentation.
-ValType KSArray::size()
-{}
+template <class ValType>
+ValType KSArray<ValType>::size()
+{
+  return (ValType)_arraySize;
+}
 
+// Returns the address of the array.
 // KSArray::begin()
 // See header for documentation.
-ValType KSArray::begin()
-{}
+template <class ValType>
+ValType KSArray<ValType>::begin()
+{
+  return *_arrayPtr[0];
+}
 
 // KSArray::end()
 // See header for documentation.
-ValType KSArray::end()
+template <class ValType>
+ValType KSArray<ValType>::end()
 {}
 
 // operator==
 // See header for documentation.
-bool operator==(const KSArray & lhs, const KSArray & rhs)
+template <class ValType>
+bool operator==(const KSArray<ValType> & lhs, const KSArray<ValType> & rhs)
 {
   return (lhs._arraySize == rhs._arraySize);
 }
 
 // operator !=
 // See header for documentation.
-bool operator!=(const KSArray & lhs, const KSArray & rhs)
+template <class ValType>
+bool operator!=(const KSArray<ValType> & lhs, const KSArray<ValType> & rhs)
 {
   return !(lhs == rhs);
 }
 
 // operator <
 // See header for documentation.
-bool operator<(const KSArray & lhs, const KSArray & rhs)
+template <class ValType>
+bool operator<(const KSArray<ValType> & lhs, const KSArray<ValType> & rhs)
 {
   return (lhs._arraySize < rhs._arraySize);
 }
 
 // operator >
 // See header for documentation.
-bool operator>(const KSArray & lhs, const KSArray & rhs)
+template <class ValType>
+bool operator>(const KSArray<ValType> & lhs, const KSArray<ValType> & rhs)
 {
   return (rhs < lhs);
 }
 
 // operator <=
 // See header for documentation.
-bool operator<=(const KSArray & lhs, const KSArray & rhs)
+template <class ValType>
+bool operator<=(const KSArray<ValType> & lhs, const KSArray<ValType> & rhs)
 {
   return !(rhs < lhs);
 }
 
 // operator >=
 // See header for documentation.
-bool operator>=(const KSArray & lhs, const KSArray & rhs)
+template <class ValType>
+bool operator>=(const KSArray<ValType> & lhs, const KSArray<ValType> & rhs)
 {
   return !(lhs < rhs);
 }

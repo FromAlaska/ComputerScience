@@ -16,7 +16,7 @@
 //
 // Invariants:
 //            f
-template <typename ValType>
+template <class ValType>
 class KSArray
 {
   // Operator ==
@@ -25,22 +25,27 @@ class KSArray
   // if they have the same size and their corresponding items are all equal.
   // Pre: Two KSArray objects with different value types cannot be compared.
   // Post:
-  friend bool operator==(const KSArray &, const KSArray &);
+  friend bool operator==(const KSArray<ValType> &, const KSArray<ValType> &);
 
-private:
+public:
+
+  // Size Types & Value types
+  using size_type = ValType;
+  using value_type = ValType;
 
   // Default ctor
   // Creates an array of a size 10.
   // Pre: None.
   // Post:
-  KSArray(): _arraySize(10)
+  KSArray(): _arraySize(10), _arrayPtr(new(ValType))
   {}
 
   // Constructor
   // Creates an object using value from the parameter.
   // Pre: Value CANNOT be negative.
   // Post:
-  KSArray(ValType);
+  KSArray(ValType arraySize): _arraySize(arraySize)
+  {}
 
   // Destructor
   // This frees any dynamically allocated memory.
@@ -52,7 +57,7 @@ private:
   // Copies all of the data from A to B.
   // Pre:
   // Post:
-  KSArray(const KSArray &);
+  KSArray(const KSArray<ValType> &);
 
   // size
   // Returns the number of items in the array.
@@ -73,13 +78,14 @@ private:
   ValType end();
 
   // Big Five, well at least three of the big five
-  KSArray(KSArray &&)=delete;
-  KSArray & operator=(const KSArray &)=delete;
-  KSArray & operator=(KSArray &&)=delete;
+  KSArray(KSArray<ValType> &&)=default;
+  KSArray & operator=(const KSArray<ValType> &)=default;
+  KSArray & operator=(KSArray<ValType> &&)=default;
 
-public:
+private:
   ValType _arraySize;
-}
+  ValType *_arrayPtr;
+};
 
 //************************************************************
 // Class KSArray - Declarations of associated global operators
@@ -89,30 +95,35 @@ public:
 // Compares objects A and B, then returns a boolean. Using Canonical code.
 // Pre: Two KSArray objects with different value types cannot be compared.
 // Post:
-bool operator!=(const KSArray &, const KSArray &);
+template <class ValType>
+bool operator!=(const KSArray<ValType> &, const KSArray<ValType> &);
 
 // Operator >
 // Compares object A and B and returns a boolean
 // Pre:
 // Post:
-bool operator>(const KSArray &, const KSArray &);
+template <class ValType>
+bool operator>(const KSArray<ValType> &, const KSArray<ValType> &);
 
 // Operator <=
 // Compares object A and B and returns a boolean
 // Pre:
 // Post:
-bool operator<=(const KSArray &, const KSArray &);
+template <class ValType>
+bool operator<=(const KSArray<ValType> &, const KSArray<ValType> &);
 
 // Operator >=
 // Compares object A and B and returns a boolean
 // Pre:
 // Post:
-bool operator>=(const KSArray &, const KSArray &);
+template <class ValType>
+bool operator>=(const KSArray<ValType> &, const KSArray<ValType> &);
 
 // Operator <
 // Compares object A and B and returns a boolean.
 // Pre:
 // Post:
-bool operator<(const KSArray &, const KSArray &);
+template <class ValType>
+bool operator<(const KSArray<ValType> &, const KSArray<ValType> &);
 
 #endif //KS_ARRAY_FILE
