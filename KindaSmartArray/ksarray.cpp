@@ -3,7 +3,7 @@
 // September 18, 2017
 //
 // For CS311 2017 Fall
-// Source File
+// Source File for Class KSArray
 
 #include "ksarray.h"
 
@@ -13,7 +13,7 @@
 template <class ValType>
 KSArray<ValType>::~KSArray()
 {
-  delete *_arrayPtr
+  delete *_arrayPtr;
 }
 
 // Copy Constructor
@@ -21,31 +21,52 @@ KSArray<ValType>::~KSArray()
 // See header for documentation.
 template <class ValType>
 KSArray<ValType>::KSArray(const KSArray<ValType> & other)
-{}
+{
+  
+}
 
 // Returns number of items in the array.
 // KSArray::size()
 // See header for documentation.
 template <class ValType>
-ValType KSArray<ValType>::size()
+ValType KSArray<ValType>::size() const
 {
-  return (ValType)_arraySize;
+  return _arraySize;
 }
 
 // Returns the address of the array.
 // KSArray::begin()
 // See header for documentation.
 template <class ValType>
-ValType KSArray<ValType>::begin()
+ValType * KSArray<ValType>::begin()
 {
-  return *_arrayPtr[0];
+  return _arrayPtr[0];
+}
+
+// Returns the address of the array.
+// KSArray::begin()
+// See header for documentation.
+template <class ValType>
+ValType * KSArray<ValType>::begin() const
+{
+  return _arrayPtr[0];
 }
 
 // KSArray::end()
 // See header for documentation.
 template <class ValType>
-ValType KSArray<ValType>::end()
-{}
+ValType * KSArray<ValType>::end()
+{
+  return *_arrayPtr[_arraySize];
+}
+
+// KSArray::end()
+// See header for documentation.
+template <class ValType>
+ValType * KSArray<ValType>::end() const
+{
+  return *_arrayPtr[_arraySize];
+}
 
 // operator==
 // See header for documentation.

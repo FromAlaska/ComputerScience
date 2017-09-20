@@ -8,6 +8,8 @@
 #ifndef KS_ARRAY_FILE
 #define KS_ARRAY_FILE
 
+#include <cstddef>
+
 //*****************************
 // Class array
 //*****************************
@@ -30,7 +32,7 @@ class KSArray
 public:
 
   // Size Types & Value types
-  using size_type = ValType;
+  using size_type = std::size_t;
   using value_type = ValType;
 
   // Default ctor
@@ -63,24 +65,54 @@ public:
   // Returns the number of items in the array.
   // Pre:
   // Post:
-  ValType size();
+  ValType size() const;
 
-  // begin
+  // begin (non-const)
   // Returns the address of item 0 in the array (think “iterator”).
   // Pre:
   // Post:
-  ValType begin();
+  ValType * begin();
 
-  // end
+  // begin (const)
+  // Returns the address of item 0 in the array (think “iterator”).
+  // Pre:
+  // Post:
+  ValType * begin() const;
+
+  // end (non-const)
   // Returns the address of the item one-past the end of the array (think “iterator”).
   // Pre:
   // Post:
-  ValType end();
+  ValType * end();
+
+  // end (const)
+  // Returns the address of the item one-past the end of the array (think “iterator”).
+  // Pre:
+  // Post:
+  ValType * end() const;
 
   // Big Five, well at least three of the big five
   KSArray(KSArray<ValType> &&)=default;
   KSArray & operator=(const KSArray<ValType> &)=default;
   KSArray & operator=(KSArray<ValType> &&)=default;
+
+  // Bracket operator
+  //
+  // Pre:
+  // Post:
+  const value_type & operator[](const size_type & index) const
+  {
+    return _arrayPtr[index];
+  }
+
+  // Bracket operator non-const
+  //
+  // Pre:
+  // Post:
+  value_type & operator[](const size_type & index)
+  {
+    return _arrayPtr[index];
+  }
 
 private:
   ValType _arraySize;
