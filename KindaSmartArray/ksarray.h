@@ -27,7 +27,19 @@ class KSArray
   // if they have the same size and their corresponding items are all equal.
   // Pre: Two KSArray objects with different value types cannot be compared.
   // Post:
-  friend bool operator==(const KSArray<ValType> &, const KSArray<ValType> &);
+  friend bool operator==(const KSArray<ValType> & lhs, const KSArray<ValType> & rhs)
+  {
+    return (lhs._arraySize == rhs._arraySize);
+  }
+
+  // Operator <
+  // Compares object A and B and returns a boolean.
+  // Pre:
+  // Post:
+  friend bool operator<(const KSArray<ValType> & lhs, const KSArray<ValType> & rhs)
+  {
+    return (lhs._arraySize < rhs._arraySize);
+  }
 
 public:
 
@@ -39,21 +51,31 @@ public:
   // Creates an array of a size 10.
   // Pre: None.
   // Post:
-  KSArray(): _arraySize(10), _arrayPtr(new(ValType))
+  KSArray(): _arrayPtr(new value_type[10]), _arraySize(10)
   {}
+
+  // Const Constructor
+  // Creates an object using value from the parameter.
+  // Pre: Value CANNOT be negative.
+  // Post:
+  //KSArray(ValType arraySize): _arraySize(arraySize)
+  //{}
 
   // Constructor
   // Creates an object using value from the parameter.
   // Pre: Value CANNOT be negative.
   // Post:
-  KSArray(ValType arraySize): _arraySize(arraySize)
+  KSArray(const size_type arraySize): _arrayPtr(new value_type[arraySize]), _arraySize(arraySize)
   {}
 
   // Destructor
   // This frees any dynamically allocated memory.
   // Pre:
   // Post:
-  ~KSArray();
+  ~KSArray()
+  {
+    delete _arrayPtr;
+  }
 
   // Copy Constructor
   // Copies all of the data from A to B.
@@ -65,31 +87,46 @@ public:
   // Returns the number of items in the array.
   // Pre:
   // Post:
-  ValType size() const;
+  ValType size() const
+  {
+    return _arraySize;
+  }
 
   // begin (non-const)
   // Returns the address of item 0 in the array (think “iterator”).
   // Pre:
   // Post:
-  ValType * begin();
+  ValType * begin()
+  {
+    return &_arrayPtr[0];
+  }
 
   // begin (const)
   // Returns the address of item 0 in the array (think “iterator”).
   // Pre:
   // Post:
-  ValType * begin() const;
+  const ValType * begin() const
+  {
+    return &_arrayPtr[0];
+  }
 
   // end (non-const)
   // Returns the address of the item one-past the end of the array (think “iterator”).
   // Pre:
   // Post:
-  ValType * end();
+  ValType * end()
+  {
+    return &_arrayPtr[_arraySize];
+  }
 
   // end (const)
   // Returns the address of the item one-past the end of the array (think “iterator”).
   // Pre:
   // Post:
-  ValType * end() const;
+  const ValType * end() const
+  {
+    return &_arrayPtr[_arraySize];
+  }
 
   // Big Five, well at least three of the big five
   KSArray(KSArray<ValType> &&)=default;
@@ -128,34 +165,39 @@ private:
 // Pre: Two KSArray objects with different value types cannot be compared.
 // Post:
 template <class ValType>
-bool operator!=(const KSArray<ValType> &, const KSArray<ValType> &);
+bool operator!=(const KSArray<ValType> & lhs, const KSArray<ValType> & rhs)
+{
+  return !(lhs == rhs);
+}
 
 // Operator >
 // Compares object A and B and returns a boolean
 // Pre:
 // Post:
 template <class ValType>
-bool operator>(const KSArray<ValType> &, const KSArray<ValType> &);
+bool operator>(const KSArray<ValType> & lhs, const KSArray<ValType> & rhs)
+{
+  return (rhs < lhs);
+}
 
 // Operator <=
 // Compares object A and B and returns a boolean
 // Pre:
 // Post:
 template <class ValType>
-bool operator<=(const KSArray<ValType> &, const KSArray<ValType> &);
+bool operator<=(const KSArray<ValType> & lhs, const KSArray<ValType> & rhs)
+{
+  return !(rhs < lhs);
+}
 
 // Operator >=
 // Compares object A and B and returns a boolean
 // Pre:
 // Post:
 template <class ValType>
-bool operator>=(const KSArray<ValType> &, const KSArray<ValType> &);
-
-// Operator <
-// Compares object A and B and returns a boolean.
-// Pre:
-// Post:
-template <class ValType>
-bool operator<(const KSArray<ValType> &, const KSArray<ValType> &);
+bool operator>=(const KSArray<ValType> & lhs, const KSArray<ValType> & rhs)
+{
+  return !(lhs < rhs);
+}
 
 #endif //KS_ARRAY_FILE
