@@ -83,9 +83,31 @@ template <typename RAIter>
 size_t uniqueCount(RAIter first,
                    RAIter last)
 {
-    return size_t(42);  // Dummy return, so that it compiles
+    //return size_t(42);  // Dummy return, so that it compiles
                         // Elminate this return statement!
     // TODO: Write this!!!
+
+    auto ptrElement = first+1;
+    size_t totalUniqueElements=0;
+    bool foundAnother;
+
+    while(first != last)
+    {
+      foundAnother = false;
+      while(ptrElement != last)
+      {
+        if(*ptrElement == *first)
+        {
+          ptrElement++;
+          foundAnother = true;
+          break;
+        }
+      }
+      first++;
+      if(!foundAnother)
+        ++totalUniqueElements;
+    }
+    return totalUniqueElements;
 }
 
 
@@ -95,4 +117,3 @@ int gcd(int a,
 
 
 #endif  //#ifndef FILE_DA3_H_INCLUDED
-
