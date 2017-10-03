@@ -12,7 +12,9 @@
 using std::size_t;
 #include <functional>
 using std::function;
-
+#include <algorithm>
+#include <stdexcept>
+#include <iostream>
 
 // **************************************************************** // *
 // Begin DO-NOT-CHANGE section                                      // *
@@ -67,9 +69,21 @@ template <typename ValueType>
 ValueType lookUp(const LLNode<ValueType> * head,
                  size_t index)
 {
-    return ValueType();  // Dummy return, so that it compiles
-                         // Elminate this return statement!
-    // TODO: Write this!!!
+    size_t counter = 0;
+    while(head != NULL)
+    {
+      if(counter == index)
+      {
+        return head -> _data;
+      }
+      head = head -> _next;
+      ++counter;
+    }
+    if(index <= 0 || head == NULL || index>=counter)
+    {
+      throw std::out_of_range("Index is negative, an empty list, or greater than your counter.");
+    }
+    return head -> _data;
 }
 
 
@@ -83,31 +97,16 @@ template <typename RAIter>
 size_t uniqueCount(RAIter first,
                    RAIter last)
 {
-    //return size_t(42);  // Dummy return, so that it compiles
-                        // Elminate this return statement!
-    // TODO: Write this!!!
+  std::sort(first,last);
+  auto uniqueElements = std::unique(first,last);
+  int totalAmount = 0;
 
-    auto ptrElement = first+1;
-    size_t totalUniqueElements=0;
-    bool foundAnother;
-
-    while(first != last)
-    {
-      foundAnother = false;
-      while(ptrElement != last)
-      {
-        if(*ptrElement == *first)
-        {
-          ptrElement++;
-          foundAnother = true;
-          break;
-        }
-      }
-      first++;
-      if(!foundAnother)
-        ++totalUniqueElements;
-    }
-    return totalUniqueElements;
+  while(uniqueElements != first)
+  {
+    ++first;
+    ++totalAmount;
+  }
+  return totalAmount;
 }
 
 

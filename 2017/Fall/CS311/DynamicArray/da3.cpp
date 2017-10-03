@@ -14,15 +14,33 @@ void callBetween(const function<void()> & start,
                  const function<void()> & middle,
                  const function<void()> & finish)
 {
-    // TODO: Write this!!!
+  start();
+    try
+    {
+      middle();
+    }
+    catch(...)
+    {
+      finish();
+      throw;
+    }
+    finish();
 }
 
 
 int gcd(int a,
         int b)
 {
-    return 42;  // Dummy return, so that it compiles
-                // Eliminate this return statement!
-    // TODO: Write this!!!
+  if(a == 0)
+  {
+    return b;
+  }
+  if(a > b)
+  {
+    return gcd(b,a);
+  }
+  else
+  {
+    return gcd(b%a,a);
+  }
 }
-
