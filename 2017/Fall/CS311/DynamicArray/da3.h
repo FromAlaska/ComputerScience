@@ -64,7 +64,15 @@ struct LLNode {                                                     // *
 // Do not alter the lines above                                     // *
 // **************************************************************** // *
 
-
+// lookUp()
+// lookUp is a null-terminated Linked List and an integer index. LookUp functions
+// similarly like to an array bracket operator, returning the item correspoinding
+// to the given index.
+// Pre: Index must not be negative, head must have values
+// Post:
+//      Checks if index <= 0, head != NULL, and index >= counter.
+//      Otherwise, this function throws if any of the checks fail.
+//      Counter checks the next linked list in the array.
 template <typename ValueType>
 ValueType lookUp(const LLNode<ValueType> * head,
                  size_t index)
@@ -86,13 +94,28 @@ ValueType lookUp(const LLNode<ValueType> * head,
     return head -> _data;
 }
 
-
-// Implementation in source file
+// callBetween()
+// This function calls functions of the functions that were passed by reference.
+// To call a function, use start() within the scope of this function.
+// Pre: none.
+// Post:
+//      The start() function is checked by the outer try/catch exceptions.
+//      If start() throws, then all the other functions must not be called.
+//      If middle() throws, the finish() function cleans up start().
 void callBetween(const function<void()> & start,
                  const function<void()> & middle,
                  const function<void()> & finish);
 
-
+// uniqueCount()
+// uniqueCount is a function that checks the elements and the array, then returns
+// the unique amount of elements in the array.
+// Pre: none.
+// Post:
+//      First, the std::sort() algorithm sorts the elements in the list.
+//      Second, a pointer is allocated and a std::unique() is called to remove equivelant elements.
+//      Third, using the pointer, a while loop is constructed and compared to the first element.
+//      Inside the while loop, an iterator increments while the RaIter first iterator increments.
+//      uniqueCount returns the total amount that has been incremented.
 template <typename RAIter>
 size_t uniqueCount(RAIter first,
                    RAIter last)
@@ -109,8 +132,16 @@ size_t uniqueCount(RAIter first,
   return totalAmount;
 }
 
-
-// Implementation in source file
+// gcd();
+// The gcd() function returns the greatest common denominator of the values inside gcd(a,b).
+// Unfortunately, the function does not check if the values are negative, but it does check if
+// a is equal to zero.
+// Pre: a != 0, a & b !< 0
+// Post:
+//      First, it checks if a is equal to zero, if so, it returns b.
+//      Second, if a > b, it returns recursive function gcd(a,b) = gcd(b,a).
+//      Third, if the first two checks passed, then the function returns the recursive
+//      function gcd(b%a,a).
 int gcd(int a,
         int b);
 

@@ -9,7 +9,8 @@
 #include <functional>
 using std::function;
 
-
+// callBetween()
+// Check header for description.
 void callBetween(const function<void()> & start,
                  const function<void()> & middle,
                  const function<void()> & finish)
@@ -27,7 +28,8 @@ void callBetween(const function<void()> & start,
     finish();
 }
 
-
+// gcd()
+// Check header for description.
 int gcd(int a,
         int b)
 {

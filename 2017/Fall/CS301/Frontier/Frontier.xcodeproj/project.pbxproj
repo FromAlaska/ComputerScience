@@ -1,0 +1,343 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D06FF0291F3BEEB2008B6B41 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = D06FF0281F3BEEB2008B6B41 /* ResourcePath.mm */; };
+		D06FF02C1F3BEEB2008B6B41 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D06FF02B1F3BEEB2008B6B41 /* main.cpp */; };
+		D0BF18831F628EE600E36A2E /* GameLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0BF18811F628EE600E36A2E /* GameLoop.cpp */; };
+		D0BF18861F62906500E36A2E /* ParentState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0BF18841F62906500E36A2E /* ParentState.cpp */; };
+		D0BF18891F62931400E36A2E /* PlayerSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0BF18871F62931400E36A2E /* PlayerSprite.cpp */; };
+		D0BF188C1F6293D500E36A2E /* DisplayWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0BF188A1F6293D500E36A2E /* DisplayWindow.cpp */; };
+		D0BF18951F62981900E36A2E /* MainMenuState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0BF18931F62981900E36A2E /* MainMenuState.cpp */; };
+		D0BF189B1F649D1100E36A2E /* PlayState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0BF18991F649D1100E36A2E /* PlayState.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D06FF0231F3BEEB2008B6B41 /* Frontier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Frontier.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D06FF0271F3BEEB2008B6B41 /* Frontier-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Frontier-Info.plist"; sourceTree = "<group>"; };
+		D06FF0281F3BEEB2008B6B41 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
+		D06FF02A1F3BEEB2008B6B41 /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
+		D06FF02B1F3BEEB2008B6B41 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D0BF18811F628EE600E36A2E /* GameLoop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLoop.cpp; sourceTree = "<group>"; };
+		D0BF18821F628EE600E36A2E /* GameLoop.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameLoop.hpp; sourceTree = "<group>"; };
+		D0BF18841F62906500E36A2E /* ParentState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParentState.cpp; sourceTree = "<group>"; };
+		D0BF18851F62906500E36A2E /* ParentState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ParentState.hpp; sourceTree = "<group>"; };
+		D0BF18871F62931400E36A2E /* PlayerSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerSprite.cpp; sourceTree = "<group>"; };
+		D0BF18881F62931400E36A2E /* PlayerSprite.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PlayerSprite.hpp; sourceTree = "<group>"; };
+		D0BF188A1F6293D500E36A2E /* DisplayWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DisplayWindow.cpp; sourceTree = "<group>"; };
+		D0BF188B1F6293D500E36A2E /* DisplayWindow.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DisplayWindow.hpp; sourceTree = "<group>"; };
+		D0BF188E1F62955600E36A2E /* ParentOfSprites.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ParentOfSprites.hpp; sourceTree = "<group>"; };
+		D0BF18931F62981900E36A2E /* MainMenuState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuState.cpp; sourceTree = "<group>"; };
+		D0BF18941F62981900E36A2E /* MainMenuState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MainMenuState.hpp; sourceTree = "<group>"; };
+		D0BF18961F6306DE00E36A2E /* Arial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Arial.ttf; path = ../../../Arial.ttf; sourceTree = "<group>"; };
+		D0BF18991F649D1100E36A2E /* PlayState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayState.cpp; sourceTree = "<group>"; };
+		D0BF189A1F649D1100E36A2E /* PlayState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PlayState.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D06FF01F1F3BEEB2008B6B41 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D06FF0191F3BEEB2008B6B41 = {
+			isa = PBXGroup;
+			children = (
+				D06FF0251F3BEEB2008B6B41 /* Frontier */,
+				D06FF0241F3BEEB2008B6B41 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D06FF0241F3BEEB2008B6B41 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D06FF0231F3BEEB2008B6B41 /* Frontier.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D06FF0251F3BEEB2008B6B41 /* Frontier */ = {
+			isa = PBXGroup;
+			children = (
+				D06FF0281F3BEEB2008B6B41 /* ResourcePath.mm */,
+				D06FF02A1F3BEEB2008B6B41 /* ResourcePath.hpp */,
+				D06FF02B1F3BEEB2008B6B41 /* main.cpp */,
+				D0BF18811F628EE600E36A2E /* GameLoop.cpp */,
+				D0BF18821F628EE600E36A2E /* GameLoop.hpp */,
+				D0BF18841F62906500E36A2E /* ParentState.cpp */,
+				D0BF18851F62906500E36A2E /* ParentState.hpp */,
+				D0BF18931F62981900E36A2E /* MainMenuState.cpp */,
+				D0BF18941F62981900E36A2E /* MainMenuState.hpp */,
+				D0BF18871F62931400E36A2E /* PlayerSprite.cpp */,
+				D0BF18881F62931400E36A2E /* PlayerSprite.hpp */,
+				D0BF188E1F62955600E36A2E /* ParentOfSprites.hpp */,
+				D0BF188A1F6293D500E36A2E /* DisplayWindow.cpp */,
+				D0BF188B1F6293D500E36A2E /* DisplayWindow.hpp */,
+				D0BF18991F649D1100E36A2E /* PlayState.cpp */,
+				D0BF189A1F649D1100E36A2E /* PlayState.hpp */,
+				D06FF02D1F3BEEB2008B6B41 /* Resources */,
+				D06FF0261F3BEEB2008B6B41 /* Supporting Files */,
+			);
+			path = Frontier;
+			sourceTree = "<group>";
+		};
+		D06FF0261F3BEEB2008B6B41 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D06FF0271F3BEEB2008B6B41 /* Frontier-Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D06FF02D1F3BEEB2008B6B41 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D0BF18961F6306DE00E36A2E /* Arial.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D06FF0221F3BEEB2008B6B41 /* Frontier */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D06FF0381F3BEEB2008B6B41 /* Build configuration list for PBXNativeTarget "Frontier" */;
+			buildPhases = (
+				D06FF01E1F3BEEB2008B6B41 /* Sources */,
+				D06FF01F1F3BEEB2008B6B41 /* Frameworks */,
+				D06FF0201F3BEEB2008B6B41 /* Resources */,
+				D06FF0211F3BEEB2008B6B41 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Frontier;
+			productName = Frontier;
+			productReference = D06FF0231F3BEEB2008B6B41 /* Frontier.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D06FF01A1F3BEEB2008B6B41 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Jim Samson";
+				TargetAttributes = {
+					D06FF0221F3BEEB2008B6B41 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 4C6J8XYC3B;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = D06FF01D1F3BEEB2008B6B41 /* Build configuration list for PBXProject "Frontier" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D06FF0191F3BEEB2008B6B41;
+			productRefGroup = D06FF0241F3BEEB2008B6B41 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D06FF0221F3BEEB2008B6B41 /* Frontier */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D06FF0201F3BEEB2008B6B41 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D06FF0211F3BEEB2008B6B41 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This shell script simply copies required SFML dylibs/frameworks into the application bundle frameworks folder.\n# If you're using static libraries (which is not recommended) you should remove this script from your project.\n\n# SETTINGS\nCMAKE_INSTALL_FRAMEWORK_PREFIX=\"/Library/Frameworks\"\nCMAKE_INSTALL_LIB_PREFIX=\"/usr/local/lib\"\nFRAMEWORKS_FULL_PATH=\"$BUILT_PRODUCTS_DIR/$FRAMEWORKS_FOLDER_PATH/\"\n\n# Are we building a project that uses frameworks or dylibs?\ncase \"$SFML_BINARY_TYPE\" in\n    DYLIBS)\n        frameworks=\"false\"\n        ;;\n    *)\n        frameworks=\"true\"\n        ;;\nesac\n\n# Echoes to stderr\nerror () # $* message to display\n{\n    echo $* 1>&2\n    exit 2\n}\n\nassert () # $1 is a boolean, $2...N is an error message\n{\n    if [ $# -lt 2 ]\n    then\n        error \"Internal error in assert: not enough args\"\n    fi\n\n    if [ $1 -ne 0 ]\n    then\n        shift\n        error \"$*\"\n    fi\n}\n\nforce_remove () # $@ is some paths\n{\n    test $# -ge 1\n    assert $? \"force_remove() requires at least one parameter\"\n    rm -fr $@\n    assert $? \"couldn't remove $@\"\n}\n\ncopy () # $1 is a source, $2 is a destination\n{\n    test $# -eq 2\n    assert $? \"copy() requires two parameters\"\n    ditto \"$1\" \"$2\"\n    assert $? \"couldn't copy $1 to $2\"\n}\n\nrequire () # $1 is a SFML module like 'system' or 'audio'\n{\n    dest=\"$BUILT_PRODUCTS_DIR/$FRAMEWORKS_FOLDER_PATH/\"\n\n    if [ -z \"$1\" ]\n    then\n        error \"require() requires one parameter!\"\n    else\n        # clean potentially old stuff\n        force_remove \"$dest/libsfml-$1\"*\n        force_remove \"$dest/sfml-$1.framework\"\n\n        # copy SFML libraries\n        if [ \"$frameworks\" = \"true\" ]\n        then\n            source=\"$CMAKE_INSTALL_FRAMEWORK_PREFIX/sfml-$1.framework\"\n            target=\"sfml-$1.framework\"\n        elif [ \"$SFML_LINK_DYLIBS_SUFFIX\" = \"-d\" ]\n        then\n            source=\"$CMAKE_INSTALL_LIB_PREFIX/libsfml-$1-d.dylib\"\n            target=\"`readlink $source`\"\n        else\n            source=\"$CMAKE_INSTALL_LIB_PREFIX/libsfml-$1.dylib\"\n            target=\"`readlink $source`\"\n        fi\n\n        copy \"$source\" \"$dest/$target\"\n\n        # copy extra dependencies\n        if [ \"$1\" = \"audio\" ]\n        then\n            # copy \"FLAC\" \"ogg\" \"vorbis\" \"vorbisenc\" \"vorbisfile\" \"OpenAL\" frameworks too\n            for f in \"FLAC\" \"ogg\" \"vorbis\" \"vorbisenc\" \"vorbisfile\" \"OpenAL\"\n            do\n                copy \"$CMAKE_INSTALL_FRAMEWORK_PREFIX/$f.framework\" \"$dest/$f.framework\"\n            done\n        elif [ \"$1\" = \"graphics\" ]\n        then\n            copy \"$CMAKE_INSTALL_FRAMEWORK_PREFIX/freetype.framework\" \"$dest/freetype.framework\"\n        fi\n    fi\n}\n\nif [ -n \"$SFML_SYSTEM\" ]\nthen\n    require \"system\"\nfi\n\nif [ -n \"$SFML_AUDIO\" ]\nthen\n    require \"audio\"\nfi\n\nif [ -n \"$SFML_NETWORK\" ]\nthen\n    require \"network\"\nfi\n\nif [ -n \"$SFML_WINDOW\" ]\nthen\n    require \"window\"\nfi\n\nif [ -n \"$SFML_GRAPHICS\" ]\nthen\n    require \"graphics\"\nfi\n\n                ";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D06FF01E1F3BEEB2008B6B41 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0BF18951F62981900E36A2E /* MainMenuState.cpp in Sources */,
+				D06FF02C1F3BEEB2008B6B41 /* main.cpp in Sources */,
+				D0BF18891F62931400E36A2E /* PlayerSprite.cpp in Sources */,
+				D06FF0291F3BEEB2008B6B41 /* ResourcePath.mm in Sources */,
+				D0BF188C1F6293D500E36A2E /* DisplayWindow.cpp in Sources */,
+				D0BF189B1F649D1100E36A2E /* PlayState.cpp in Sources */,
+				D0BF18861F62906500E36A2E /* ParentState.cpp in Sources */,
+				D0BF18831F628EE600E36A2E /* GameLoop.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D06FF0361F3BEEB2008B6B41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks/,
+					"$(inherited)",
+				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib/,
+					"$(inherited)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(SFML_SYSTEM)",
+					"$(SFML_WINDOW)",
+					"$(SFML_GRAPHICS)",
+					"$(SFML_AUDIO)",
+					"$(SFML_NETWORK)",
+				);
+				SFML_AUDIO = "$(SFML_LINK_PREFIX) sfml-audio$(SFML_LINK_SUFFIX)";
+				SFML_BINARY_TYPE = FRAMEWORKS;
+				SFML_GRAPHICS = "$(SFML_LINK_PREFIX) sfml-graphics$(SFML_LINK_SUFFIX)";
+				SFML_LINK_DYLIBS_PREFIX = "-l";
+				SFML_LINK_DYLIBS_SUFFIX = "";
+				SFML_LINK_FRAMEWORKS_PREFIX = "-framework";
+				SFML_LINK_FRAMEWORKS_SUFFIX = "";
+				SFML_LINK_PREFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_PREFIX)";
+				SFML_LINK_SUFFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_SUFFIX)";
+				SFML_NETWORK = "$(SFML_LINK_PREFIX) sfml-network$(SFML_LINK_SUFFIX)";
+				SFML_SYSTEM = "$(SFML_LINK_PREFIX) sfml-system$(SFML_LINK_SUFFIX)";
+				SFML_WINDOW = "$(SFML_LINK_PREFIX) sfml-window$(SFML_LINK_SUFFIX)";
+				SUPPORTED_PLATFORMS = macosx;
+			};
+			name = Debug;
+		};
+		D06FF0371F3BEEB2008B6B41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks/,
+					"$(inherited)",
+				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib/,
+					"$(inherited)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(SFML_SYSTEM)",
+					"$(SFML_WINDOW)",
+					"$(SFML_GRAPHICS)",
+					"$(SFML_AUDIO)",
+					"$(SFML_NETWORK)",
+				);
+				SFML_AUDIO = "$(SFML_LINK_PREFIX) sfml-audio$(SFML_LINK_SUFFIX)";
+				SFML_BINARY_TYPE = FRAMEWORKS;
+				SFML_GRAPHICS = "$(SFML_LINK_PREFIX) sfml-graphics$(SFML_LINK_SUFFIX)";
+				SFML_LINK_DYLIBS_PREFIX = "-l";
+				SFML_LINK_DYLIBS_SUFFIX = "";
+				SFML_LINK_FRAMEWORKS_PREFIX = "-framework";
+				SFML_LINK_FRAMEWORKS_SUFFIX = "";
+				SFML_LINK_PREFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_PREFIX)";
+				SFML_LINK_SUFFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_SUFFIX)";
+				SFML_NETWORK = "$(SFML_LINK_PREFIX) sfml-network$(SFML_LINK_SUFFIX)";
+				SFML_SYSTEM = "$(SFML_LINK_PREFIX) sfml-system$(SFML_LINK_SUFFIX)";
+				SFML_WINDOW = "$(SFML_LINK_PREFIX) sfml-window$(SFML_LINK_SUFFIX)";
+				SUPPORTED_PLATFORMS = macosx;
+			};
+			name = Release;
+		};
+		D06FF0391F3BEEB2008B6B41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				DEVELOPMENT_TEAM = 4C6J8XYC3B;
+				INFOPLIST_FILE = "Frontier/Frontier-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D06FF03A1F3BEEB2008B6B41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				DEVELOPMENT_TEAM = 4C6J8XYC3B;
+				INFOPLIST_FILE = "Frontier/Frontier-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D06FF01D1F3BEEB2008B6B41 /* Build configuration list for PBXProject "Frontier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D06FF0361F3BEEB2008B6B41 /* Debug */,
+				D06FF0371F3BEEB2008B6B41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D06FF0381F3BEEB2008B6B41 /* Build configuration list for PBXNativeTarget "Frontier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D06FF0391F3BEEB2008B6B41 /* Debug */,
+				D06FF03A1F3BEEB2008B6B41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D06FF01A1F3BEEB2008B6B41 /* Project object */;
+}
