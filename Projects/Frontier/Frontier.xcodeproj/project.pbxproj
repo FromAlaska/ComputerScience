@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D0643ACC1F86FAC7007321E4 /* MainMenu.wav in Resources */ = {isa = PBXBuildFile; fileRef = D0643ACB1F86FAC7007321E4 /* MainMenu.wav */; };
+		D0643AFC1F8700CD007321E4 /* parallax-mountain-trees.png in Resources */ = {isa = PBXBuildFile; fileRef = D0643AF71F8700CD007321E4 /* parallax-mountain-trees.png */; };
+		D0643AFD1F8700CD007321E4 /* parallax-mountain-mountains.png in Resources */ = {isa = PBXBuildFile; fileRef = D0643AF81F8700CD007321E4 /* parallax-mountain-mountains.png */; };
+		D0643AFE1F8700CD007321E4 /* parallax-mountain-montain-far.png in Resources */ = {isa = PBXBuildFile; fileRef = D0643AF91F8700CD007321E4 /* parallax-mountain-montain-far.png */; };
+		D0643AFF1F8700CD007321E4 /* parallax-mountain-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D0643AFA1F8700CD007321E4 /* parallax-mountain-bg.png */; };
+		D0643B001F8700CD007321E4 /* parallax-mountain-foreground-trees.png in Resources */ = {isa = PBXBuildFile; fileRef = D0643AFB1F8700CD007321E4 /* parallax-mountain-foreground-trees.png */; };
+		D0643B1C1F8732AB007321E4 /* TextManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0643B1A1F8732AB007321E4 /* TextManager.cpp */; };
+		D0643B1F1F8732F8007321E4 /* MusicManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0643B1D1F8732F8007321E4 /* MusicManager.cpp */; };
 		D06FF0291F3BEEB2008B6B41 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = D06FF0281F3BEEB2008B6B41 /* ResourcePath.mm */; };
 		D06FF02C1F3BEEB2008B6B41 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D06FF02B1F3BEEB2008B6B41 /* main.cpp */; };
 		D0BF18831F628EE600E36A2E /* GameLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0BF18811F628EE600E36A2E /* GameLoop.cpp */; };
@@ -18,6 +26,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D0643ACB1F86FAC7007321E4 /* MainMenu.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = MainMenu.wav; path = ../../../../../../Downloads/MainMenu.wav; sourceTree = "<group>"; };
+		D0643AF71F8700CD007321E4 /* parallax-mountain-trees.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "parallax-mountain-trees.png"; path = "../../../../../../Downloads/parallax_mountain_pack/layers/parallax-mountain-trees.png"; sourceTree = "<group>"; };
+		D0643AF81F8700CD007321E4 /* parallax-mountain-mountains.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "parallax-mountain-mountains.png"; path = "../../../../../../Downloads/parallax_mountain_pack/layers/parallax-mountain-mountains.png"; sourceTree = "<group>"; };
+		D0643AF91F8700CD007321E4 /* parallax-mountain-montain-far.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "parallax-mountain-montain-far.png"; path = "../../../../../../Downloads/parallax_mountain_pack/layers/parallax-mountain-montain-far.png"; sourceTree = "<group>"; };
+		D0643AFA1F8700CD007321E4 /* parallax-mountain-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "parallax-mountain-bg.png"; path = "../../../../../../Downloads/parallax_mountain_pack/layers/parallax-mountain-bg.png"; sourceTree = "<group>"; };
+		D0643AFB1F8700CD007321E4 /* parallax-mountain-foreground-trees.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "parallax-mountain-foreground-trees.png"; path = "../../../../../../Downloads/parallax_mountain_pack/layers/parallax-mountain-foreground-trees.png"; sourceTree = "<group>"; };
+		D0643B1A1F8732AB007321E4 /* TextManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TextManager.cpp; sourceTree = "<group>"; };
+		D0643B1B1F8732AB007321E4 /* TextManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TextManager.hpp; sourceTree = "<group>"; };
+		D0643B1D1F8732F8007321E4 /* MusicManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MusicManager.cpp; sourceTree = "<group>"; };
+		D0643B1E1F8732F8007321E4 /* MusicManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MusicManager.hpp; sourceTree = "<group>"; };
 		D06FF0231F3BEEB2008B6B41 /* Frontier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Frontier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D06FF0271F3BEEB2008B6B41 /* Frontier-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Frontier-Info.plist"; sourceTree = "<group>"; };
 		D06FF0281F3BEEB2008B6B41 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
@@ -34,7 +52,6 @@
 		D0BF188E1F62955600E36A2E /* ParentOfSprites.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ParentOfSprites.hpp; sourceTree = "<group>"; };
 		D0BF18931F62981900E36A2E /* MainMenuState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuState.cpp; sourceTree = "<group>"; };
 		D0BF18941F62981900E36A2E /* MainMenuState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MainMenuState.hpp; sourceTree = "<group>"; };
-		D0BF18961F6306DE00E36A2E /* Arial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Arial.ttf; path = ../../../Arial.ttf; sourceTree = "<group>"; };
 		D0BF18991F649D1100E36A2E /* PlayState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayState.cpp; sourceTree = "<group>"; };
 		D0BF189A1F649D1100E36A2E /* PlayState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PlayState.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -50,6 +67,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D0643B011F8709C7007321E4 /* ResourceManager */ = {
+			isa = PBXGroup;
+			children = (
+				D06FF0281F3BEEB2008B6B41 /* ResourcePath.mm */,
+				D06FF02A1F3BEEB2008B6B41 /* ResourcePath.hpp */,
+			);
+			name = ResourceManager;
+			sourceTree = "<group>";
+		};
+		D0643B151F8731A1007321E4 /* States */ = {
+			isa = PBXGroup;
+			children = (
+				D0BF18931F62981900E36A2E /* MainMenuState.cpp */,
+				D0BF18941F62981900E36A2E /* MainMenuState.hpp */,
+				D0BF18991F649D1100E36A2E /* PlayState.cpp */,
+				D0BF189A1F649D1100E36A2E /* PlayState.hpp */,
+			);
+			name = States;
+			sourceTree = "<group>";
+		};
+		D0643B161F8731BB007321E4 /* ParentClasses */ = {
+			isa = PBXGroup;
+			children = (
+				D0BF18841F62906500E36A2E /* ParentState.cpp */,
+				D0BF18851F62906500E36A2E /* ParentState.hpp */,
+				D0BF188E1F62955600E36A2E /* ParentOfSprites.hpp */,
+			);
+			name = ParentClasses;
+			sourceTree = "<group>";
+		};
+		D0643B171F8731D8007321E4 /* Sprites/Objects */ = {
+			isa = PBXGroup;
+			children = (
+				D0BF18871F62931400E36A2E /* PlayerSprite.cpp */,
+				D0BF18881F62931400E36A2E /* PlayerSprite.hpp */,
+				D0643B1A1F8732AB007321E4 /* TextManager.cpp */,
+				D0643B1B1F8732AB007321E4 /* TextManager.hpp */,
+			);
+			name = Sprites/Objects;
+			sourceTree = "<group>";
+		};
+		D0643B181F8731EF007321E4 /* Visual/Media Management */ = {
+			isa = PBXGroup;
+			children = (
+				D0BF188A1F6293D500E36A2E /* DisplayWindow.cpp */,
+				D0BF188B1F6293D500E36A2E /* DisplayWindow.hpp */,
+				D0643B1D1F8732F8007321E4 /* MusicManager.cpp */,
+				D0643B1E1F8732F8007321E4 /* MusicManager.hpp */,
+			);
+			name = "Visual/Media Management";
+			sourceTree = "<group>";
+		};
 		D06FF0191F3BEEB2008B6B41 = {
 			isa = PBXGroup;
 			children = (
@@ -69,22 +138,14 @@
 		D06FF0251F3BEEB2008B6B41 /* Frontier */ = {
 			isa = PBXGroup;
 			children = (
-				D06FF0281F3BEEB2008B6B41 /* ResourcePath.mm */,
-				D06FF02A1F3BEEB2008B6B41 /* ResourcePath.hpp */,
 				D06FF02B1F3BEEB2008B6B41 /* main.cpp */,
 				D0BF18811F628EE600E36A2E /* GameLoop.cpp */,
 				D0BF18821F628EE600E36A2E /* GameLoop.hpp */,
-				D0BF18841F62906500E36A2E /* ParentState.cpp */,
-				D0BF18851F62906500E36A2E /* ParentState.hpp */,
-				D0BF18931F62981900E36A2E /* MainMenuState.cpp */,
-				D0BF18941F62981900E36A2E /* MainMenuState.hpp */,
-				D0BF18871F62931400E36A2E /* PlayerSprite.cpp */,
-				D0BF18881F62931400E36A2E /* PlayerSprite.hpp */,
-				D0BF188E1F62955600E36A2E /* ParentOfSprites.hpp */,
-				D0BF188A1F6293D500E36A2E /* DisplayWindow.cpp */,
-				D0BF188B1F6293D500E36A2E /* DisplayWindow.hpp */,
-				D0BF18991F649D1100E36A2E /* PlayState.cpp */,
-				D0BF189A1F649D1100E36A2E /* PlayState.hpp */,
+				D0643B181F8731EF007321E4 /* Visual/Media Management */,
+				D0643B171F8731D8007321E4 /* Sprites/Objects */,
+				D0643B161F8731BB007321E4 /* ParentClasses */,
+				D0643B151F8731A1007321E4 /* States */,
+				D0643B011F8709C7007321E4 /* ResourceManager */,
 				D06FF02D1F3BEEB2008B6B41 /* Resources */,
 				D06FF0261F3BEEB2008B6B41 /* Supporting Files */,
 			);
@@ -102,7 +163,12 @@
 		D06FF02D1F3BEEB2008B6B41 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D0BF18961F6306DE00E36A2E /* Arial.ttf */,
+				D0643AFA1F8700CD007321E4 /* parallax-mountain-bg.png */,
+				D0643AFB1F8700CD007321E4 /* parallax-mountain-foreground-trees.png */,
+				D0643AF91F8700CD007321E4 /* parallax-mountain-montain-far.png */,
+				D0643AF81F8700CD007321E4 /* parallax-mountain-mountains.png */,
+				D0643AF71F8700CD007321E4 /* parallax-mountain-trees.png */,
+				D0643ACB1F86FAC7007321E4 /* MainMenu.wav */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -134,7 +200,7 @@
 		D06FF01A1F3BEEB2008B6B41 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Jim Samson";
 				TargetAttributes = {
 					D06FF0221F3BEEB2008B6B41 = {
@@ -166,6 +232,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0643B001F8700CD007321E4 /* parallax-mountain-foreground-trees.png in Resources */,
+				D0643ACC1F86FAC7007321E4 /* MainMenu.wav in Resources */,
+				D0643AFF1F8700CD007321E4 /* parallax-mountain-bg.png in Resources */,
+				D0643AFD1F8700CD007321E4 /* parallax-mountain-mountains.png in Resources */,
+				D0643AFE1F8700CD007321E4 /* parallax-mountain-montain-far.png in Resources */,
+				D0643AFC1F8700CD007321E4 /* parallax-mountain-trees.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,10 +265,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0BF18951F62981900E36A2E /* MainMenuState.cpp in Sources */,
+				D0643B1F1F8732F8007321E4 /* MusicManager.cpp in Sources */,
 				D06FF02C1F3BEEB2008B6B41 /* main.cpp in Sources */,
 				D0BF18891F62931400E36A2E /* PlayerSprite.cpp in Sources */,
 				D06FF0291F3BEEB2008B6B41 /* ResourcePath.mm in Sources */,
 				D0BF188C1F6293D500E36A2E /* DisplayWindow.cpp in Sources */,
+				D0643B1C1F8732AB007321E4 /* TextManager.cpp in Sources */,
 				D0BF189B1F649D1100E36A2E /* PlayState.cpp in Sources */,
 				D0BF18861F62906500E36A2E /* ParentState.cpp in Sources */,
 				D0BF18831F628EE600E36A2E /* GameLoop.cpp in Sources */,
@@ -209,14 +283,37 @@
 		D06FF0361F3BEEB2008B6B41 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					/Library/Frameworks/,
 					"$(inherited)",
 				);
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include/,
 					"$(inherited)",
@@ -226,6 +323,7 @@
 					"$(inherited)",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"$(SFML_SYSTEM)",
@@ -253,14 +351,36 @@
 		D06FF0371F3BEEB2008B6B41 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					/Library/Frameworks/,
 					"$(inherited)",
 				);
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include/,
 					"$(inherited)",
@@ -301,6 +421,7 @@
 				DEVELOPMENT_TEAM = 4C6J8XYC3B;
 				INFOPLIST_FILE = "Frontier/Frontier-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.AlaskaDev.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -312,6 +433,7 @@
 				DEVELOPMENT_TEAM = 4C6J8XYC3B;
 				INFOPLIST_FILE = "Frontier/Frontier-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.AlaskaDev.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

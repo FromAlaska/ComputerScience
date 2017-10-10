@@ -20,27 +20,9 @@ namespace State
 
 	PlayingState::PlayingState(Game& game) : GameState(game)
 	{
-
-		if (!_mainMenuTexture.loadFromFile("white-brick-wall.jpg"))
-		{
-			std::cout << "cannot find image" << std::endl; //Sprite
-		}
 		_mainMenuBackground.setTexture(_mainMenuTexture);
 
 		Display::setView(640,360,1280,720);
-
-		if(!_music.openFromFile("For_the_fallen.mp3"))
-		{
-			return -1;
-		}
-
-		//This is the main menu logo
-		//		loadFont();
-		//		_text.setFont(_font);
-		//		_text.setCharacterSize(60);
-		//		_text.setFillColor(sf::Color::Blue);
-		//		_text.setString("Push Blox");
-		//		_text.setPosition(Display::WIDTH/2 - 147,10);
 
 	}
 
@@ -63,6 +45,5 @@ namespace State
 	//This draws to the screen
 	void PlayingState::draw()
 	{
-		_music.play();
 	}
 }

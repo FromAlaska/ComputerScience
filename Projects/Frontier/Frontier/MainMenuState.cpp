@@ -20,38 +20,35 @@ namespace State
 
 	MainMenuState::MainMenuState(Game& game) : GameState(game)
 	{
-
-		if (!_mainMenuTexture.loadFromFile("white-brick-wall.jpg"))
-		{
-			std::cout << "cannot find image" << std::endl; //Sprite
-		}
-		_mainMenuBackground.setTexture(_mainMenuTexture);
-
+		// Sets the view of the window display
 		Display::setView(640,360,1280,720);
 
-		//This is the main menu logo
-//		loadFont();
-//		_text.setFont(_font);
-//		_text.setCharacterSize(60);
-//		_text.setFillColor(sf::Color::Blue);
-//		_text.setString("Push Blox");
-//		_text.setPosition(Display::WIDTH/2 - 147,10);
-		_menuRect.setSize(sf::Vector2f(305, 165));
-		_menuRect.setFillColor(sf::Color::White);
-		_menuRect.setPosition(Display::WIDTH/2 - 157, 25);
+		// Loads data from texture
+		if(!_backgroundSunset.create(Display::WIDTH,Display::HEIGHT))
+		{ std::cout << "Texture cannot be created." << std::endl; }
+
+		// Sets the texture into a sprite
+		if (!_backgroundSunset.loadFromFile(resourcePath() + "parallax-mountain-bg.png"))
+		{ std::cout << "cannot find image" << std::endl; }
+
+		_mainSunsetBackground.setTexture(_backgroundSunset);
+		_mainSunsetBackground.setScale(5,5);
+
+		// Opens the music file
+		if(!_music.openFromFile(resourcePath() + "MainMenu.wav"))
+		{}
+
+		_musicPtr = &_music;
 
 	}
 
-	//This gets keyboard input
+	// This gets keyboard input
 	void MainMenuState::input(sf::Time dt)
 	{
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 		{
+			_musicPtr->stop();
 			_game->pushState(std::make_unique<State::PlayingState>(*_game));
-		}
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::F))
-		{
-			_game->popState();
 		}
 	}
 
@@ -64,6 +61,6 @@ namespace State
 	//This draws to the screen
 	void MainMenuState::draw()
 	{
-		Display::draw(_menuRect);
+		Display::draw(_mainSunsetBackground);
 	}
 }

@@ -10,6 +10,7 @@
 #define gameState_hpp
 
 #include "PlayerSprite.hpp"
+#include "MusicManager.hpp"
 
 #include<SFML/Window.hpp>
 #include<SFML/Graphics.hpp>

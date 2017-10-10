@@ -10,6 +10,7 @@
 #define game_hpp
 
 #include "ParentState.hpp"
+#include "ResourcePath.hpp"
 
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
