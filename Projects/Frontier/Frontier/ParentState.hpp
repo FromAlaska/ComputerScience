@@ -11,6 +11,8 @@
 
 #include "PlayerSprite.hpp"
 #include "MusicManager.hpp"
+#include "SpriteTextureManager.hpp"
+#include "SoundManager.hpp"
 
 #include<SFML/Window.hpp>
 #include<SFML/Graphics.hpp>
@@ -37,6 +39,7 @@ namespace State
 		Game* _game;
 		sf::Text _text;
 		sf::Font _font;
+		
 	};
 }
 #endif /* gameState_hpp */

@@ -9,8 +9,9 @@
 #ifndef display_hpp
 #define display_hpp
 
-#include <stdio.h>
+#include "SpriteTextureManager.hpp"
 
+#include <stdio.h>
 #include<SFML/Graphics.hpp>
 
 namespace Display
@@ -18,7 +19,7 @@ namespace Display
 	void init();
 	void clear(sf::Color color);
 	void display();
-	void draw(const sf::Drawable& drawable);
+	void draw(const sf::Drawable&);
 
 	bool isOpen();
 	void checkWindowEvents();

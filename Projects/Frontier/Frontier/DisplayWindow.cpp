@@ -40,7 +40,7 @@ namespace Display
 		window->setView(*view);
 		window->draw(drawable);
 	}
-
+	
 	void checkWindowEvents()
 	{
 		sf::Event e;

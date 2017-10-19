@@ -11,13 +11,21 @@
 
 #include "ParentState.hpp"
 #include "ParentOfSprites.hpp"
+#include "MusicManager.hpp"
+#include "RectangleSprite.hpp"
+#include "GameLoop.hpp"
+#include "DisplayWindow.hpp"
+#include "PlayState.hpp"
+#include "TextManager.hpp"
 
+#include <algorithm>
 #include <stdio.h>
 #include <iostream>
 #include <memory>
 
 #include <SFML/Audio.hpp>
 #include <SFML/Audio/Music.hpp>
+#include <SFML/System/Vector2.hpp>
 
 namespace State
 {
@@ -29,36 +37,27 @@ namespace State
 		void input(sf::Time dt);
 		void update(double dt);
 		void draw();
-		sf::Texture _mainMenuTexture;
 
-		~MainMenuState()
-		{
-			delete _musicPtr;
-		}
+		sf::Texture _mainMenuTexture;
 
 	private:
 
-		sf::Sprite _mainSunsetBackground;
-		sf::Sprite _mainTreesBackground;
-		sf::Sprite _mainMountainsBackground;
-		sf::Sprite _mainFarMountainsBackground;
-		sf::Sprite _mainFarTreesBackground;
+		Sound _sound;
 
-		sf::RectangleShape _menuBorderRect;
-		sf::RectangleShape _menuRect;
-		sf::Text _hostGameText;
-		sf::Text _clientGameText;
-		sf::Text _settingsText;
-		sf::Text _aboutText;
+		frontier::Sprite _mainSunsetBackground;
 
+		std::vector<frontier::Sprite> _mainMountainsBackground;
+		std::vector<frontier::Sprite> _mainTreesBackground;
+		std::vector<frontier::Sprite> _mainFarMountainsBackground;
+		std::vector<frontier::Sprite> _mainFarTreesBackground;
 
-		sf::Music _music;
-		sf::Music *_musicPtr;
-		sf::Texture _backgroundSunset;
-		sf::Texture _backgroundTrees;
-		sf::Texture _backgroundMountains;
-		sf::Texture _backgroundFarMountain;
-		sf::Texture _backgroundFarTrees;
+		frontier::Sprite _mainMountains;
+		frontier::Sprite _mainTrees;
+		frontier::Sprite _mainFarMountains;
+		frontier::Sprite _mainFarTrees;
+
+		Text _titleText;
+		Text _enterToStart;
 	};
 }
 

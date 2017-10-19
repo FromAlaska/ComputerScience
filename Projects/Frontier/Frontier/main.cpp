@@ -9,6 +9,7 @@
 #include "GameLoop.hpp"
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 int main()
 {
@@ -16,4 +17,8 @@ int main()
 	game.gameLoop(); // Starts the game loop
 
     return EXIT_SUCCESS;
+}
+void printChar(char yes)
+{
+	std::cout << yes << std::endl;
 }

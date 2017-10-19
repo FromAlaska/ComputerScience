@@ -8,12 +8,15 @@
 
 #include "MusicManager.hpp"
 
-void Sound::loadMusicFile(string & musicName)
+void Sound::playMusicFile(const string && musicName)
 {
-	if(!_music.openFromFile(resourcePath() + musicName))
+	if(!_music.openFromFile(resourcePath() + playthis))
 	{ cout << "Cannot load music file" << endl; }
+	
+	_music.play();
+	_music.setLoop(true);
 }
-
-void Sound::playMusic()
+void Sound::stopMusic()
 {
+	_music.stop();
 }

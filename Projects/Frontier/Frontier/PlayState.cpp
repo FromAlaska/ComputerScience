@@ -20,16 +20,15 @@ namespace State
 
 	PlayingState::PlayingState(Game& game) : GameState(game)
 	{
-		_mainMenuBackground.setTexture(_mainMenuTexture);
-
 		Display::setView(640,360,1280,720);
 
+		_sound.play();
 	}
 
 	//This gets keyboard input
 	void PlayingState::input(sf::Time dt)
 	{
-		
+
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		{
 			_game->popState();

@@ -26,7 +26,7 @@ Game::Game()
 void Game::gameLoop()
 {
 	sf::Clock clock;
-	sf::Time dt;
+	sf::Time dt = sf::seconds(0.1);
 
 	// This starts the display window
 	while (Display::isOpen())

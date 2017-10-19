@@ -14,8 +14,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <memory>
-
-#include <SFML/Audio.hpp>
+#include <cstdint>
 
 namespace State
 {
@@ -29,15 +28,8 @@ namespace State
 		void draw();
 		sf::Texture _mainMenuTexture;
 	private:
-
 		sf::Sprite _mainMenuBackground;
-		sf::RectangleShape _menuBorderRect;
-		sf::RectangleShape _menuRect;
-		sf::Text _hostGameText;
-		sf::Text _clientGameText;
-		sf::Text _settingsText;
-		sf::Text _aboutText;
-		sf::Music _music;
+		SoundManager _sound;
 	};
 }
 
