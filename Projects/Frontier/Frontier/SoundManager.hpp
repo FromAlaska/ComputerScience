@@ -15,61 +15,43 @@
 #include <iostream>
 #include <cstdint>
 #include <cmath>
+#include <string>
+using std::string;
 
 #include <SFML/Audio.hpp>
 
-extern "C" short *woopSound();
+extern "C" short * squareWaveGenerator(int);
+extern "C" short * cWaveGenerator();
 
 class SoundManager
 {
 public:
 	SoundManager()
 	{
-		_ptr = woopSound();
+		_soundSf.resize(7);
+		_buffer.resize(7);
+		_wave.resize(7);
 
-		int16_t _raw[SAMPLES];
-
-		const double increment = 440./44100;
-		double x = 0;
-
-		for (unsigned i = 0; i < SAMPLES; i++)
-		{
-			_raw[i] = AMPLITUDE * sin(x*sin(x/20));
-			//_raw[i] = AMPLITUDE/2 * sin(x*(M_PI*2)*sin(x/1000));
-
-			//_raw[i] = AMPLITUDE * sin(((2*M_PI)*x*(5/4)));
-			x += increment;
-
-//			if(i > 5000)
-//			{
-//				//_raw[i] += _raw[i-5000]/2;
-//			}
-		}
-
-		if(!_buffer.loadFromSamples(_ptr, SAMPLES, 1, SAMPLE_RATE))
-		{std::cout << "Could not load buffer" << std::endl;}
-
-		_soundSf.setBuffer(_buffer);
-		_soundSf.setLoop(true);
+		sineWave();
 	}
-
-	void loadBuffer();
-	void play();
-
-	~SoundManager()
-	{
-		delete[] _ptr;
-	}
+	void loadBuffer(int);
+	void play(string &&);
+	void sineWave();
 
 	const unsigned SAMPLES = 44100;
 	const unsigned SAMPLE_RATE = 44100;
 	const unsigned AMPLITUDE = 30000;
+	
+	std::vector<sf::SoundBuffer> _buffer;
+	std::vector<sf::Sound> _soundSf;
+	std::vector<short> _wave;
+
+	sf::SoundBuffer _bufferSineWave;
+	sf::Sound _soundSine;
 
 private:
-	sf::SoundBuffer _buffer;
-	sf::Sound _soundSf;
-
-	short *_ptr;
+	
+	int16_t _raw[44100];
 };
 
 #endif /* SoundManager_hpp */

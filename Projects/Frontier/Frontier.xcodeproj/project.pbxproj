@@ -25,13 +25,14 @@
 		D07BF4F11F96C49E00AF60F6 /* Simple.wav in Resources */ = {isa = PBXBuildFile; fileRef = D07BF4EE1F96C49D00AF60F6 /* Simple.wav */; };
 		D07BF4F21F96C49E00AF60F6 /* interesting.wav in Resources */ = {isa = PBXBuildFile; fileRef = D07BF4EF1F96C49D00AF60F6 /* interesting.wav */; };
 		D07BF4F31F96C49E00AF60F6 /* beepBoop.wav in Resources */ = {isa = PBXBuildFile; fileRef = D07BF4F01F96C49D00AF60F6 /* beepBoop.wav */; };
+		D07BF5051F9A08C500AF60F6 /* Logomakr_Jim.png in Resources */ = {isa = PBXBuildFile; fileRef = D07BF5041F9A08C500AF60F6 /* Logomakr_Jim.png */; };
 		D0BF18831F628EE600E36A2E /* GameLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0BF18811F628EE600E36A2E /* GameLoop.cpp */; };
 		D0BF18861F62906500E36A2E /* ParentState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0BF18841F62906500E36A2E /* ParentState.cpp */; };
 		D0BF18891F62931400E36A2E /* PlayerSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0BF18871F62931400E36A2E /* PlayerSprite.cpp */; };
 		D0BF188C1F6293D500E36A2E /* DisplayWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0BF188A1F6293D500E36A2E /* DisplayWindow.cpp */; };
 		D0BF18951F62981900E36A2E /* MainMenuState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0BF18931F62981900E36A2E /* MainMenuState.cpp */; };
 		D0BF189B1F649D1100E36A2E /* PlayState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0BF18991F649D1100E36A2E /* PlayState.cpp */; };
-		D0C7278A1F94B7BA00A88065 /* Woop.asm in Sources */ = {isa = PBXBuildFile; fileRef = D0C727891F94B7BA00A88065 /* Woop.asm */; };
+		D0C7278A1F94B7BA00A88065 /* SquareWaveGenerator.asm in Sources */ = {isa = PBXBuildFile; fileRef = D0C727891F94B7BA00A88065 /* SquareWaveGenerator.asm */; };
 		D0C7278E1F9556CC00A88065 /* RectangleSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0C7278C1F9556CC00A88065 /* RectangleSprite.cpp */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		D07BF4EE1F96C49D00AF60F6 /* Simple.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Simple.wav; path = ../../../../../../Downloads/Simple.wav; sourceTree = "<group>"; };
 		D07BF4EF1F96C49D00AF60F6 /* interesting.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = interesting.wav; path = ../../../../../../Downloads/interesting.wav; sourceTree = "<group>"; };
 		D07BF4F01F96C49D00AF60F6 /* beepBoop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = beepBoop.wav; path = ../../../../../../Downloads/beepBoop.wav; sourceTree = "<group>"; };
+		D07BF5041F9A08C500AF60F6 /* Logomakr_Jim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Logomakr_Jim.png; path = ../../../../../../Downloads/Logomakr_Jim.png; sourceTree = "<group>"; };
 		D0BF18811F628EE600E36A2E /* GameLoop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLoop.cpp; sourceTree = "<group>"; };
 		D0BF18821F628EE600E36A2E /* GameLoop.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameLoop.hpp; sourceTree = "<group>"; };
 		D0BF18841F62906500E36A2E /* ParentState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParentState.cpp; sourceTree = "<group>"; };
@@ -88,7 +90,7 @@
 		D0BF18941F62981900E36A2E /* MainMenuState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MainMenuState.hpp; sourceTree = "<group>"; };
 		D0BF18991F649D1100E36A2E /* PlayState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayState.cpp; sourceTree = "<group>"; };
 		D0BF189A1F649D1100E36A2E /* PlayState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PlayState.hpp; sourceTree = "<group>"; };
-		D0C727891F94B7BA00A88065 /* Woop.asm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm.asm; path = Woop.asm; sourceTree = "<group>"; };
+		D0C727891F94B7BA00A88065 /* SquareWaveGenerator.asm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm.asm; path = SquareWaveGenerator.asm; sourceTree = "<group>"; };
 		D0C7278C1F9556CC00A88065 /* RectangleSprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RectangleSprite.cpp; sourceTree = "<group>"; };
 		D0C7278D1F9556CC00A88065 /* RectangleSprite.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RectangleSprite.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,7 +160,7 @@
 				D0643B1E1F8732F8007321E4 /* MusicManager.hpp */,
 				D07BF4EB1F96A72C00AF60F6 /* SoundManager.cpp */,
 				D07BF4EC1F96A72C00AF60F6 /* SoundManager.hpp */,
-				D0C727891F94B7BA00A88065 /* Woop.asm */,
+				D0C727891F94B7BA00A88065 /* SquareWaveGenerator.asm */,
 			);
 			name = "Display/Media Management";
 			sourceTree = "<group>";
@@ -207,6 +209,7 @@
 		D06FF02D1F3BEEB2008B6B41 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D07BF5041F9A08C500AF60F6 /* Logomakr_Jim.png */,
 				D07BF4F01F96C49D00AF60F6 /* beepBoop.wav */,
 				D07BF4EF1F96C49D00AF60F6 /* interesting.wav */,
 				D07BF4EE1F96C49D00AF60F6 /* Simple.wav */,
@@ -283,6 +286,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D07BF5051F9A08C500AF60F6 /* Logomakr_Jim.png in Resources */,
 				D0643B001F8700CD007321E4 /* parallax-mountain-foreground-trees.png in Resources */,
 				D0643ACC1F86FAC7007321E4 /* MainMenu.wav in Resources */,
 				D07BF4F11F96C49E00AF60F6 /* Simple.wav in Resources */,
@@ -325,7 +329,7 @@
 				D0643B1F1F8732F8007321E4 /* MusicManager.cpp in Sources */,
 				D06FF02C1F3BEEB2008B6B41 /* main.cpp in Sources */,
 				D0BF18891F62931400E36A2E /* PlayerSprite.cpp in Sources */,
-				D0C7278A1F94B7BA00A88065 /* Woop.asm in Sources */,
+				D0C7278A1F94B7BA00A88065 /* SquareWaveGenerator.asm in Sources */,
 				D01305D21F9195EB0031F3C3 /* SpriteTextureManager.cpp in Sources */,
 				D06FF0291F3BEEB2008B6B41 /* ResourcePath.mm in Sources */,
 				D0BF188C1F6293D500E36A2E /* DisplayWindow.cpp in Sources */,
