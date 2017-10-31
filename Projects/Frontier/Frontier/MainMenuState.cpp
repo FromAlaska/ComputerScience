@@ -43,6 +43,7 @@ namespace State
 	void MainMenuState::input(sf::Time dt)
 	{
 		Display::setView(272/2, 160/2, 272, 160);
+		//Display::setView(0,0,Display::Width,Display::Height);
 
 		const int VELOCITY = 45;
 

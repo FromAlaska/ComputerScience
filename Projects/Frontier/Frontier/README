@@ -1,0 +1,24 @@
+Jim Samson
+October 15, 2017
+CS301 Assembly Language
+README.txt
+
+Square Wave Generator
+This class is for making sounds while in the screen.
+This takes an 64-bit integer.
+Similar to C code squareWaveGenerator(int)
+
+How to use this code:
+	- This program returns a pointer.
+	- Call extern "C" short * squareWaveGenerator(int)
+	- This is built for the Apple Macbook Late 2013.
+	- I use the SFML Library, with the sf::SoundBuffer _soundBuffer; & sf::Sound _sound
+	- Documentation on _nameBuffer.loadfromsamples(short *, Sample Size, channel(1,2),Sample Rate);
+	- It's also same for Sound API functions that use
+										_nameBuffer.loadfromsamples(short *, Sample Size, channel(1,2),Sample Rate);
+	- I load the pointer into a buffer, using _soundBuffer.loadfromsamples(soundWaveGenerator(int),44100,1,44100);
+	- It may help to use this code with an Apple device
+
+Example of this code:
+	- This function is defined in the SounManager.hpp class.
+	- Inside loadBuffer(short*,44100,1,44100), the buffer is loaded from samples

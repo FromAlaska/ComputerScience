@@ -35,13 +35,14 @@ void SoundManager::sineWave()
 	for (unsigned i = 0; i < SAMPLES; i++)
 	{
 		//_raw[i] = AMPLITUDE/2 * sin(x*sin(x/20));
-		_raw[i] = AMPLITUDE/2 * sin(x*(M_PI*2)*sin(x/1000));
+		_raw[i] = AMPLITUDE * sin(x*2*M_PI);
+		//_raw[i] = AMPLITUDE/2 * sin(x*(M_PI*2)*sin(x/1000));
 		//_raw[i] = AMPLITUDE * sin(((2*M_PI)*x*(5/4)));
 		x += increment;
 
 		if(i > 5000)
 		{
-			_raw[i] += _raw[i-5000]/2;
+			//_raw[i] += _raw[i-5000]/2;
 		}
 	}
 	

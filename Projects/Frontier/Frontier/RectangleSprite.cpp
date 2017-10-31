@@ -11,8 +11,6 @@
 Rectangle::Rectangle()
 {
 	_rectangle.resize(3);
-//	_rectangle[1].setSize(sf::Vector2f(60, 65));
-//	_rectangle[1].setFillColor(sf::Color::Red);
 }
 
 void Rectangle::loadTexture(string && texture)

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D01305D21F9195EB0031F3C3 /* SpriteTextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D01305D01F9195EB0031F3C3 /* SpriteTextureManager.cpp */; };
+		D023C21C1F9AE414001C66EC /* README in Resources */ = {isa = PBXBuildFile; fileRef = D023C21B1F9AE414001C66EC /* README */; };
 		D0643ACC1F86FAC7007321E4 /* MainMenu.wav in Resources */ = {isa = PBXBuildFile; fileRef = D0643ACB1F86FAC7007321E4 /* MainMenu.wav */; };
 		D0643AFC1F8700CD007321E4 /* parallax-mountain-trees.png in Resources */ = {isa = PBXBuildFile; fileRef = D0643AF71F8700CD007321E4 /* parallax-mountain-trees.png */; };
 		D0643AFD1F8700CD007321E4 /* parallax-mountain-mountains.png in Resources */ = {isa = PBXBuildFile; fileRef = D0643AF81F8700CD007321E4 /* parallax-mountain-mountains.png */; };
@@ -25,7 +26,6 @@
 		D07BF4F11F96C49E00AF60F6 /* Simple.wav in Resources */ = {isa = PBXBuildFile; fileRef = D07BF4EE1F96C49D00AF60F6 /* Simple.wav */; };
 		D07BF4F21F96C49E00AF60F6 /* interesting.wav in Resources */ = {isa = PBXBuildFile; fileRef = D07BF4EF1F96C49D00AF60F6 /* interesting.wav */; };
 		D07BF4F31F96C49E00AF60F6 /* beepBoop.wav in Resources */ = {isa = PBXBuildFile; fileRef = D07BF4F01F96C49D00AF60F6 /* beepBoop.wav */; };
-		D07BF5051F9A08C500AF60F6 /* Logomakr_Jim.png in Resources */ = {isa = PBXBuildFile; fileRef = D07BF5041F9A08C500AF60F6 /* Logomakr_Jim.png */; };
 		D0BF18831F628EE600E36A2E /* GameLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0BF18811F628EE600E36A2E /* GameLoop.cpp */; };
 		D0BF18861F62906500E36A2E /* ParentState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0BF18841F62906500E36A2E /* ParentState.cpp */; };
 		D0BF18891F62931400E36A2E /* PlayerSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0BF18871F62931400E36A2E /* PlayerSprite.cpp */; };
@@ -53,6 +53,7 @@
 /* Begin PBXFileReference section */
 		D01305D01F9195EB0031F3C3 /* SpriteTextureManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteTextureManager.cpp; sourceTree = "<group>"; };
 		D01305D11F9195EB0031F3C3 /* SpriteTextureManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SpriteTextureManager.hpp; sourceTree = "<group>"; };
+		D023C21B1F9AE414001C66EC /* README */ = {isa = PBXFileReference; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		D0643ACB1F86FAC7007321E4 /* MainMenu.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = MainMenu.wav; path = ../../../../../../Downloads/MainMenu.wav; sourceTree = "<group>"; };
 		D0643AF71F8700CD007321E4 /* parallax-mountain-trees.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "parallax-mountain-trees.png"; path = "../../../../../../Downloads/parallax_mountain_pack/layers/parallax-mountain-trees.png"; sourceTree = "<group>"; };
 		D0643AF81F8700CD007321E4 /* parallax-mountain-mountains.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "parallax-mountain-mountains.png"; path = "../../../../../../Downloads/parallax_mountain_pack/layers/parallax-mountain-mountains.png"; sourceTree = "<group>"; };
@@ -76,7 +77,6 @@
 		D07BF4EE1F96C49D00AF60F6 /* Simple.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Simple.wav; path = ../../../../../../Downloads/Simple.wav; sourceTree = "<group>"; };
 		D07BF4EF1F96C49D00AF60F6 /* interesting.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = interesting.wav; path = ../../../../../../Downloads/interesting.wav; sourceTree = "<group>"; };
 		D07BF4F01F96C49D00AF60F6 /* beepBoop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = beepBoop.wav; path = ../../../../../../Downloads/beepBoop.wav; sourceTree = "<group>"; };
-		D07BF5041F9A08C500AF60F6 /* Logomakr_Jim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Logomakr_Jim.png; path = ../../../../../../Downloads/Logomakr_Jim.png; sourceTree = "<group>"; };
 		D0BF18811F628EE600E36A2E /* GameLoop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLoop.cpp; sourceTree = "<group>"; };
 		D0BF18821F628EE600E36A2E /* GameLoop.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameLoop.hpp; sourceTree = "<group>"; };
 		D0BF18841F62906500E36A2E /* ParentState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParentState.cpp; sourceTree = "<group>"; };
@@ -184,6 +184,7 @@
 		D06FF0251F3BEEB2008B6B41 /* Frontier */ = {
 			isa = PBXGroup;
 			children = (
+				D023C21B1F9AE414001C66EC /* README */,
 				D06FF02B1F3BEEB2008B6B41 /* main.cpp */,
 				D0BF18811F628EE600E36A2E /* GameLoop.cpp */,
 				D0BF18821F628EE600E36A2E /* GameLoop.hpp */,
@@ -209,7 +210,6 @@
 		D06FF02D1F3BEEB2008B6B41 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D07BF5041F9A08C500AF60F6 /* Logomakr_Jim.png */,
 				D07BF4F01F96C49D00AF60F6 /* beepBoop.wav */,
 				D07BF4EF1F96C49D00AF60F6 /* interesting.wav */,
 				D07BF4EE1F96C49D00AF60F6 /* Simple.wav */,
@@ -286,7 +286,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D07BF5051F9A08C500AF60F6 /* Logomakr_Jim.png in Resources */,
+				D023C21C1F9AE414001C66EC /* README in Resources */,
 				D0643B001F8700CD007321E4 /* parallax-mountain-foreground-trees.png in Resources */,
 				D0643ACC1F86FAC7007321E4 /* MainMenu.wav in Resources */,
 				D07BF4F11F96C49E00AF60F6 /* Simple.wav in Resources */,
