@@ -34,7 +34,7 @@ public:
 		string _beepBoop = "beepBoop.wav";
 		string _interesting = "interesting.wav";
 
-		srand(time(NULL));
+		srand(time(0));
 
 		int random = rand() % 4 + 1;
 
