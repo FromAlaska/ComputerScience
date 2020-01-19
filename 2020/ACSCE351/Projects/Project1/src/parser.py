@@ -3,7 +3,3 @@
 #January 14, 2019
 #Parsing algorithm using AST
 
-
-
-def Tree():
-    
