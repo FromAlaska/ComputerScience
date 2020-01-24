@@ -10,6 +10,9 @@ ifParanthesis = False
 
 openParen = []
 
+def popOutOfStack(string_left, string_right):
+    
+
 def joinNums(string_left, string_right):
     return string_left + string_right
 
