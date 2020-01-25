@@ -26,6 +26,7 @@ class lexer():
     pos = 0
     lexstr = ''
     ch = '' 
+    left_Parent_Count = 0
 
     #STATES
     _DONE = 0
@@ -36,22 +37,24 @@ class lexer():
     _LEFT_PAREN = 5
     _RIGHT_PAREN = 6
     _NUMBER = 7
+    _STR_LIT = 8
 
     def __init__(self,input):
         self.string=input
 
     def currChar(self):
-        print(self.string[self.pos])
         return self.string[self.pos]
 
     def nextChar(self):
-        return self.string[self.pos+1]
+        if(self.pos+1 >= len(self.string)):
+            self.state = self._DONE
+        else:
+            return self.string[self.pos+1]
     
     def nextNextChar(self):
         return self.string[self.pos+2]
     
     def drop1(self):
-        print("STRING: "+self.lexstr)
         self.pos += 1
 
     def add1(self):
@@ -59,7 +62,7 @@ class lexer():
         self.drop1()
 
     def maxMunch(self):
-        return self.previous_Cat is LEXIT_OPERATOR or previous_Lex is LEXIT_OPERAND
+        return self.previous_Cat is LEXIT_OPERATOR or self.previous_Lex is LEXIT_OPERAND
 
     def isDigit(self,ch):
         return (ch >= '0' and ch <= '9')
@@ -68,46 +71,31 @@ class lexer():
         if self.isDigit(self.ch):
             self.add1()
             self.state = self._NUMBER
-        elif self.ch == "+":
-            self.add1()
-            self.state = self._PLUS
-        elif self.ch == "-":
-            self.add1()
-            self.state = self._SUB
-        elif self.ch == "*":
-            self.add1()
-            self.state = self._MUL
         elif self.ch == "(":
             self.add1()
             self.state = self._LEFT_PAREN
-        elif self.ch == ")":
-            self.add1()
-            self.state = self._RIGHT_PAREN
         else:
             self.add1()
             self.state = self._DONE
 
     def handleDigit(self):
-        if (self.isDigit(self.ch)):
+        print("CURRCHAR: " + self.currChar())
+        if (self.isDigit(self.currChar())):
             self.add1()
 
-        if(self.isDigit(self.nextChar())):
-            self.add1()
-            self.state = self._NUMBER
-            
         elif(self.currChar() == "+"):
             self.state = self._PLUS
 
         elif(self.currChar() is '-'):
             self.state = self._SUB
             
-        elif(self.nextChar() == "*"):
+        elif(self.currChar() is '*'):
             self.state = self._MUL
 
-        elif(self.nextChar() == "("):
+        elif(self.currChar() is '('):
             self.state = self._LEFT_PAREN
 
-        elif(self.nextChar() == ")"):
+        elif(self.currChar() is ')'):
             self.state = self._RIGHT_PAREN
         else:
             self.state = self._DONE
@@ -120,20 +108,66 @@ class lexer():
             self.state = self._DONE
     
     def handleSub(self):
-        print("SUB STATE")
-
-    def handleMul(self):
-        print("MUL STATE")    
-
-    def handleLeftParen(self):
-        if(self.isDigit(self.nextChar()) and not self.maxMunch()):
+        if(self.isDigit(self.nextChar())):
             self.add1()
             self.state = self._NUMBER
         else:
             self.state = self._DONE
 
+    def handleMul(self):
+        if(self.isDigit(self.nextChar()) and not self.maxMunch()):
+            self.add1()
+            self.state = self._NUMBER
+        elif(self.nextChar() is "(" and not self.maxMunch()):
+            self.add1()
+            self.state = self._LEFT_PAREN
+        else:
+            self.state = self._DONE   
+
+    def handleLeftParen(self):
+        self.left_Parent_Count += 1
+        if(self.isDigit(self.nextChar()) and not self.maxMunch()):
+            self.add1()
+            self.state = self._NUMBER
+        elif(self.nextChar() is "("):
+            self.add1()
+            self.state = self._LEFT_PAREN
+        else:
+            self.state = self._DONE
+
     def handleRightParen(self):
         print("RIGHT STATE")
+        if(self.currChar() is ")"):
+            self.add1()
+            print("STRING: " + self.lexstr)
+            if(self.nextChar() is '' or self.currChar() is '\n'):
+                self.state = self._DONE
+        
+        elif(self.nextChar() is ")"):
+            self.add1()
+            self.state = self._RIGHT_PAREN
+
+        elif (self.isDigit(self.nextChar())):
+            self.add1()
+            self.state = self._NUMBER
+
+        elif(self.currChar() == "+"):
+            self.state = self._PLUS
+
+        elif(self.currChar() is '-'):
+            self.state = self._SUB
+            
+        elif(self.currChar() is '*'):
+            self.state = self._MUL
+
+        elif(self.currChar() is '' or self.currChar() is '\n'):
+            self.add1()
+            self.state = self._DONE
+        else:
+            print("STRING: " + self.lexstr)
+            self.state = self._DONE
+    def handleStringLit(self):
+        print("STRING LIT")
     
     def handleDone(self):
         print("Error in parsing")
@@ -149,20 +183,26 @@ class lexer():
 
         while(self.state is not self._DONE):
             self.ch = self.currChar()
+            print("STATE: " + str(self.state))
+            print("Current Char: " + self.currChar())
+            print("LEXSTR: " + self.lexstr)
+            print("NUM of LEFT PARENS: " + str(self.left_Parent_Count))
             if(self.state is self._START):
                 self.handleStart()
-            if(self.state is self._NUMBER):
+            elif(self.state is self._NUMBER):
                 self.handleDigit()
-            if(self.state is self._PLUS):
+            elif(self.state is self._PLUS):
                 self.handlePlus()
-            if(self.state is self._SUB):
+            elif(self.state is self._SUB):
                 self.handleSub()
-            if(self.state is self._MUL):
+            elif(self.state is self._MUL):
                 self.handleMul()
-            if(self.state is self._LEFT_PAREN):
+            elif(self.state is self._LEFT_PAREN):
                 self.handleLeftParen()
-            if(self.state is self._RIGHT_PAREN):
+            elif(self.state is self._RIGHT_PAREN):
                 self.handleRightParen()
+            elif(self.state is self._STR_LIT):
+                self.handleStringLit()
         
         self.previous_Lex = self.lexstr
         self.previous_Cat = self.category
@@ -173,7 +213,7 @@ class lexer():
 
 if __name__ == "__main__":
     #inputString = input("Enter a list of numbers: ")
-    string = '53-2*(3+3)'
+    string = '5+3*(((((3+3))))))'
     print("String: " + string)
 
     x = lexer(string)
