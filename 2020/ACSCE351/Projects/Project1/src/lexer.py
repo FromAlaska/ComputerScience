@@ -1,12 +1,9 @@
-#!/usr/bin/env python3
 
 #Jim Samson
 #January 14, 2019
 #lexer
 
 ADD,SUB,MUL,LEFT_PAREN,RIGHT_PAREN = '+','-','*','(',')'
-CATEGORIES=[ADD,SUB,MUL,LEFT_PAREN,RIGHT_PAREN]
-white_space = ' '
 
 lex_catnames=['ADD','SUB','MUL','LEF_PAR','RIG_PAR']
 
@@ -43,7 +40,10 @@ class lexer():
         self.string=input
 
     def currChar(self):
-        return self.string[self.pos]
+        if(self.pos+1 > len(self.string)):
+            self.state = self._DONE
+        else:
+            return self.string[self.pos]
 
     def nextChar(self):
         if(self.pos+1 >= len(self.string)):
@@ -79,11 +79,12 @@ class lexer():
             self.state = self._DONE
 
     def handleDigit(self):
-        print("CURRCHAR: " + self.currChar())
+        self.category = LEXIT_OPERAND
         if (self.isDigit(self.currChar())):
             self.add1()
+            return [self.lexstr,self.category]
 
-        elif(self.currChar() == "+"):
+        elif(self.currChar() is "+"):
             self.state = self._PLUS
 
         elif(self.currChar() is '-'):
@@ -101,34 +102,44 @@ class lexer():
             self.state = self._DONE
     
     def handlePlus(self):
+        self.category = LEXIT_OPERATOR
         if(self.isDigit(self.nextChar()) and not self.maxMunch()):
             self.add1()
             self.state = self._NUMBER
+            return [self.lexstr,self.category]
         else:
             self.state = self._DONE
     
     def handleSub(self):
+        self.category = LEXIT_OPERATOR
         if(self.isDigit(self.nextChar())):
             self.add1()
             self.state = self._NUMBER
+            return [self.lexstr,self.category]
         else:
             self.state = self._DONE
 
     def handleMul(self):
+        self.category = LEXIT_OPERATOR
         if(self.isDigit(self.nextChar()) and not self.maxMunch()):
             self.add1()
             self.state = self._NUMBER
+            return [self.lexstr,self.category]
         elif(self.nextChar() is "(" and not self.maxMunch()):
             self.add1()
             self.state = self._LEFT_PAREN
+            return [self.lexstr,self.category]
         else:
-            self.state = self._DONE   
+            self.state = self._DONE
+           
 
     def handleLeftParen(self):
+        self.category = LEXIT_OPERATOR
         self.left_Parent_Count += 1
         if(self.isDigit(self.nextChar()) and not self.maxMunch()):
             self.add1()
             self.state = self._NUMBER
+            return [self.lexstr,self.category]
         elif(self.nextChar() is "("):
             self.add1()
             self.state = self._LEFT_PAREN
@@ -136,13 +147,12 @@ class lexer():
             self.state = self._DONE
 
     def handleRightParen(self):
-        print("RIGHT STATE")
+        self.category = LEXIT_OPERATOR
         if(self.currChar() is ")"):
             self.add1()
             print("STRING: " + self.lexstr)
             if(self.nextChar() is '' or self.currChar() is '\n'):
                 self.state = self._DONE
-        
         elif(self.nextChar() is ")"):
             self.add1()
             self.state = self._RIGHT_PAREN
@@ -164,10 +174,8 @@ class lexer():
             self.add1()
             self.state = self._DONE
         else:
-            print("STRING: " + self.lexstr)
             self.state = self._DONE
-    def handleStringLit(self):
-        print("STRING LIT")
+        return [self.lexstr,self.category]
     
     def handleDone(self):
         print("Error in parsing")
@@ -183,39 +191,50 @@ class lexer():
 
         while(self.state is not self._DONE):
             self.ch = self.currChar()
-            print("STATE: " + str(self.state))
-            print("Current Char: " + self.currChar())
-            print("LEXSTR: " + self.lexstr)
-            print("NUM of LEFT PARENS: " + str(self.left_Parent_Count))
+            #print("STATE: " + str(self.state))
+            #print("Current Char: " + self.currChar())
+            #print("LEXSTR: " + self.lexstr)
+            #print("NUM of LEFT PARENS: " + str(self.left_Parent_Count))
             if(self.state is self._START):
                 self.handleStart()
             elif(self.state is self._NUMBER):
-                self.handleDigit()
+                #self.handleDigit()
+                print(self.handleDigit())
             elif(self.state is self._PLUS):
-                self.handlePlus()
+                #self.handlePlus()
+                print(self.handlePlus())
             elif(self.state is self._SUB):
-                self.handleSub()
+                #self.handleSub()
+                print(self.handleSub())
             elif(self.state is self._MUL):
-                self.handleMul()
+                #self.handleMul()
+                print(self.handleMul())
             elif(self.state is self._LEFT_PAREN):
-                self.handleLeftParen()
+                #self.handleLeftParen()
+                print(self.handleLeftParen())
             elif(self.state is self._RIGHT_PAREN):
-                self.handleRightParen()
+                #self.handleRightParen()
+                print(self.handleRightParen())
             elif(self.state is self._STR_LIT):
-                self.handleStringLit()
+                #self.handleStringLit()
+                print(self.handleStringLit())
+            self.previous_Lex = self.lexstr
+            self.previous_Cat = self.category
         
-        self.previous_Lex = self.lexstr
-        self.previous_Cat = self.category
+        #self.previous_Lex = self.lexstr
+        #self.previous_Cat = self.category
+        return [self.lexstr, self.category]
 
-        return self.lexstr, self.category
+    def getToken(self):
+        return [self.lexstr, self.category]
         
 
 
-if __name__ == "__main__":
-    #inputString = input("Enter a list of numbers: ")
-    string = '5+3*(((((3+3))))))'
-    print("String: " + string)
+# if __name__ == "__main__":
+#     #inputString = input("Enter a list of numbers: ")
+#     string = '5+3*(((((3+3))))))'
+#     print("String: " + string)
 
-    x = lexer(string)
-    x.getLexeme()
-    #print("STATE: " + str(x.state))
+#     x = lexer(string)
+#     x.getLexeme()
+#     #print("STATE: " + str(x.state))
