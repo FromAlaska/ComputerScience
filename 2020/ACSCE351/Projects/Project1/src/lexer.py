@@ -8,8 +8,12 @@ ADD,SUB,MUL,LEFT_PAREN,RIGHT_PAREN = '+','-','*','(',')'
 lex_catnames=['ADD','SUB','MUL','LEF_PAR','RIG_PAR']
 
 #Lexit categories
-LEXIT_OPERATOR = 1 
-LEXIT_OPERAND = 2
+LEXIT_OPERAND = 1 
+LEXIT_PLUS = 2
+LEXIT_SUB = 3
+LEXIT_MUL = 4
+LEXIT_LEFT_PAREN = 5
+LEXIT_RIGHT_PAREN = 6
 
 #Class LEXER!
 #Can be used as an object to tokenize strings.
@@ -62,7 +66,7 @@ class lexer():
         self.drop1()
 
     def maxMunch(self):
-        return self.previous_Cat is LEXIT_OPERATOR or self.previous_Lex is LEXIT_OPERAND
+        return self.previous_Lex is LEXIT_OPERAND
 
     def isDigit(self,ch):
         return (ch >= '0' and ch <= '9')
@@ -82,7 +86,7 @@ class lexer():
         self.category = LEXIT_OPERAND
         if (self.isDigit(self.currChar())):
             self.add1()
-            return [self.lexstr,self.category]
+            return [self.previous_Lex,self.category]
 
         elif(self.currChar() is "+"):
             self.state = self._PLUS
@@ -100,9 +104,10 @@ class lexer():
             self.state = self._RIGHT_PAREN
         else:
             self.state = self._DONE
+        #return [self.lexstr,self.category]
     
     def handlePlus(self):
-        self.category = LEXIT_OPERATOR
+        self.category = LEXIT_PLUS
         if(self.isDigit(self.nextChar()) and not self.maxMunch()):
             self.add1()
             self.state = self._NUMBER
@@ -111,7 +116,7 @@ class lexer():
             self.state = self._DONE
     
     def handleSub(self):
-        self.category = LEXIT_OPERATOR
+        self.category = LEXIT_SUB
         if(self.isDigit(self.nextChar())):
             self.add1()
             self.state = self._NUMBER
@@ -120,21 +125,22 @@ class lexer():
             self.state = self._DONE
 
     def handleMul(self):
-        self.category = LEXIT_OPERATOR
+        self.category = LEXIT_MUL
         if(self.isDigit(self.nextChar()) and not self.maxMunch()):
             self.add1()
             self.state = self._NUMBER
-            return [self.lexstr,self.category]
+            #return [self.lexstr,self.category]
         elif(self.nextChar() is "(" and not self.maxMunch()):
             self.add1()
             self.state = self._LEFT_PAREN
-            return [self.lexstr,self.category]
+            #return [self.lexstr,self.category]
         else:
             self.state = self._DONE
+        return [self.lexstr,self.category]
            
 
     def handleLeftParen(self):
-        self.category = LEXIT_OPERATOR
+        self.category = LEXIT_LEFT_PAREN
         self.left_Parent_Count += 1
         if(self.isDigit(self.nextChar()) and not self.maxMunch()):
             self.add1()
@@ -147,7 +153,7 @@ class lexer():
             self.state = self._DONE
 
     def handleRightParen(self):
-        self.category = LEXIT_OPERATOR
+        self.category = LEXIT_RIGHT_PAREN
         if(self.currChar() is ")"):
             self.add1()
             print("STRING: " + self.lexstr)
