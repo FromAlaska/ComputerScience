@@ -16,7 +16,7 @@ class parse(lexer):
 
     #For lexit iteration
     iterate = None #iter returned from lexit
-    state = None #state returned from lexit
+    state = [] #state returned from lexit
     lexer_out_s = None
     lexer_out_c = None 
 
@@ -24,15 +24,20 @@ class parse(lexer):
     lexstr = ""
     lexcat = 0
 
+    def iterateString(self,string):
+        return self.lexer_out_s[self.iterate]
 
     def __init__(self):
-        string = "4*4+4*(4-2)"
+        string = "456*4+4*(4-2)"
         x = lexer(string)
-        self.iterate, x.getLexeme()
+        self.iterate, self.lexer_out_s, self.lexer_out_c = x.getLexeme()
+        
         self.advance()
 
     def advance(self):
-        self.lexer_out_s, self.lexer_out_c = iter(self.state, self.lexer_out_s)
+        print("fdsa1: " + self.lexer_out_s)
+        self.lexer_out_s = iter(self.lexer_out_s)
+        print("fdsa: " + str(self.lexer_out_s))
         if self.lexer_out_s is not None:
             self.lexstr, self.lex = self.lexer_out_s, self.lexer_out_c
         else:

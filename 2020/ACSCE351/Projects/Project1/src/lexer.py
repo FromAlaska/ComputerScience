@@ -86,7 +86,7 @@ class lexer():
         self.category = LEXIT_OPERAND
         if (self.isDigit(self.currChar())):
             self.add1()
-            return [self.previous_Lex,self.category]
+            #return [self.previous_Lex,self.category]
 
         elif(self.currChar() is "+"):
             self.state = self._PLUS
@@ -111,7 +111,7 @@ class lexer():
         if(self.isDigit(self.nextChar()) and not self.maxMunch()):
             self.add1()
             self.state = self._NUMBER
-            return [self.lexstr,self.category]
+            #return [self.lexstr,self.category]
         else:
             self.state = self._DONE
     
@@ -120,7 +120,7 @@ class lexer():
         if(self.isDigit(self.nextChar())):
             self.add1()
             self.state = self._NUMBER
-            return [self.lexstr,self.category]
+            #return [self.lexstr,self.category]
         else:
             self.state = self._DONE
 
@@ -136,7 +136,7 @@ class lexer():
             #return [self.lexstr,self.category]
         else:
             self.state = self._DONE
-        return [self.lexstr,self.category]
+        #return [self.lexstr,self.category]
            
 
     def handleLeftParen(self):
@@ -145,7 +145,7 @@ class lexer():
         if(self.isDigit(self.nextChar()) and not self.maxMunch()):
             self.add1()
             self.state = self._NUMBER
-            return [self.lexstr,self.category]
+            #return [self.lexstr,self.category]
         elif(self.nextChar() is "("):
             self.add1()
             self.state = self._LEFT_PAREN
@@ -156,7 +156,7 @@ class lexer():
         self.category = LEXIT_RIGHT_PAREN
         if(self.currChar() is ")"):
             self.add1()
-            print("STRING: " + self.lexstr)
+            #print("STRING: " + self.lexstr)
             if(self.nextChar() is '' or self.currChar() is '\n'):
                 self.state = self._DONE
         elif(self.nextChar() is ")"):
@@ -204,32 +204,31 @@ class lexer():
             if(self.state is self._START):
                 self.handleStart()
             elif(self.state is self._NUMBER):
-                #self.handleDigit()
-                print(self.handleDigit())
+                self.handleDigit()
+                #print(self.handleDigit())
             elif(self.state is self._PLUS):
-                #self.handlePlus()
-                print(self.handlePlus())
+                self.handlePlus()
+                #print(self.handlePlus())
             elif(self.state is self._SUB):
-                #self.handleSub()
-                print(self.handleSub())
+                self.handleSub()
+                #print(self.handleSub())
             elif(self.state is self._MUL):
-                #self.handleMul()
-                print(self.handleMul())
+                self.handleMul()
+                #print(self.handleMul())
             elif(self.state is self._LEFT_PAREN):
-                #self.handleLeftParen()
-                print(self.handleLeftParen())
+                self.handleLeftParen()
+                #print(self.handleLeftParen())
             elif(self.state is self._RIGHT_PAREN):
-                #self.handleRightParen()
-                print(self.handleRightParen())
+                self.handleRightParen()
+                #print(self.handleRightParen())
             elif(self.state is self._STR_LIT):
-                #self.handleStringLit()
-                print(self.handleStringLit())
-            self.previous_Lex = self.lexstr
-            self.previous_Cat = self.category
+                self.handleStringLit()
+                #print(self.handleStringLit())
+            print(self.lexstr + " " + str(self.category) + " " + str(self.pos))
         
-        #self.previous_Lex = self.lexstr
-        #self.previous_Cat = self.category
-        return [self.lexstr, self.category]
+        self.previous_Lex = self.lexstr
+        self.previous_Cat = self.category
+        return [self.pos, self.lexstr, self.category]
 
     def getToken(self):
         return [self.lexstr, self.category]
