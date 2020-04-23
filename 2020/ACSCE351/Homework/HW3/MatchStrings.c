@@ -37,6 +37,17 @@ static size_t length(const char *str) {
   return l;
 }
 
+// compareFirst()
+// Compares two strings together to get the result.
+static inline int compareFirst(const unsigned char *str1, 
+								const unsigned char *str2,
+								size_t n) {
+	size_t i;
+	for(i = 0; i < n; ++i) {
+		if(str1[i] != str2[i]) return 0;
+	}
+	return 1;
+}
 
 // Similar to what was shown in class
 // Looks through the indices i and makes a list of "booleans".

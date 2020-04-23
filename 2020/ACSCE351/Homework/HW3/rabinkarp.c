@@ -13,11 +13,15 @@
 
 #include <stddef.h>
 #include <stdint.h>
+#include <stdio.h>
 
 // Prime numbers
 #define Q            ((uint64_t) (18446744073709551359ull))    /* 2^64 - 257 is prime */
 #define TWO64_MOD_Q  ((uint64_t) (257))                        /* 2^64 mod Q */
 #define TWO9_MOD_Q   ((uint64_t) (512))                        /* 2^9 mod Q */
+
+// Bernstein's hash 
+#define INITIAL_VALUE ((uint64_t) (5381))
 
 // length(*str)
 // Iterates through a list of strings. Returns the length of the string of characters.
@@ -113,15 +117,36 @@ static inline uint64_t mulModuloChar(uint64_t a, unsigned char b) {
   return mulModulo(a, ((uint64_t) b));
 }
 
-static inline int hash(char *text, size_t m) {
-	
+// hash(char *, size_t)
+// Computes the hash of the given text and size.
+static inline uint64_t hash(const unsigned char *text, size_t m) {
+	uint64_t i;
+	uint64_t hash = INITIAL_VALUE; // Initial value = Bernstein's hash function
+	for(i = 0; i < m-1; i++) {
+		printf("value: %s \n", &text[i]);
+		hash = ((hash * 3) + (uint64_t) &text[i]) % Q;
+	} 
+	return hash;
 }
 
 // updateHash(int, int, int)
 // updateHash(current hash, &haystack[i], &haystack[i+m])
+// updates the next hash.
 static inline uint64_t updateHash(int hash, int b_i, int b_i_plus_m) {
+	return 0;
 }
 
+// compareFirst()
+// Compares two strings together to get the result.
+static inline int compareFirst(const unsigned char *str1, 
+								const unsigned char *str2,
+								size_t n) {
+	size_t i;
+	for(i = 0; i < n; ++i) {
+		if(str1[i] != str2[i]) return 0;
+	}
+	return 1;
+}
 static void matchStringsDoWork(char *res,
 			       const unsigned char *haystack,
 			       size_t n,
@@ -130,12 +155,15 @@ static void matchStringsDoWork(char *res,
   if(m>n) return;
   
   int i, j;
-  int haystack_hash = 0;
-  int needle_hash = 0;
+  uint64_t haystack_hash = 0;
+  uint64_t needle_hash = 0;
   int h = 1;
   
   // Compute the first hash for the needle
-  needle_hash = needle[0];
+  needle_hash = hash(needle, m);
+  printf("Computed hash for needle: %ld [%ld]\n", needle_hash, n);
+  haystack_hash = hash(haystack, n);
+  printf("Computed hash for haystack: %ld [%ld]\n", haystack, n);
 }
 
 void matchStrings(char *res, const char *haystack, const char *needle) {
