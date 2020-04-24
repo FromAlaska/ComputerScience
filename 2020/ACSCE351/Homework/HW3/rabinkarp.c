@@ -132,8 +132,8 @@ static inline uint64_t hash(const unsigned char *text, size_t m) {
 // updateHash(int, int, int)
 // updateHash(current hash, &haystack[i], &haystack[i+m])
 // updates the next hash.
-static inline uint64_t updateHash(int hash, int b_i, int b_i_plus_m) {
-	return 0;
+static inline uint64_t updateHash(uint64_t hash, uint64_t b_i, uint64_t b_i_plus_m) {
+	return addModulo(b_i_plus_m, mulModuloBase(subModulo(hash,mulModulo(b_i,mulModuloBase(b_i_plus_m))))) % Q;
 }
 
 // compareFirst()
@@ -157,12 +157,11 @@ static void matchStringsDoWork(char *res,
   int i, j;
   uint64_t haystack_hash = 0;
   uint64_t needle_hash = 0;
-  int h = 1;
   
   // Compute the first hash for the needle
-  needle_hash = hash(needle, m);
+  needle_hash = updateHash(needle_hash, (uint64_t) &needle[0], (uint64_t) &needle[m]);
   printf("Computed hash for needle: %ld [%ld]\n", needle_hash, n);
-  haystack_hash = hash(haystack, n);
+  haystack_hash = updateHash(haystack_hash, (uint64_t) &haystack[0], (uint64_t) &haystack[m]);
   printf("Computed hash for haystack: %ld [%ld]\n", haystack, n);
 }
 

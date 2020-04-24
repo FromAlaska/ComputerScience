@@ -66,6 +66,7 @@ static inline void matchStringsBoolean(char *res,
 										size_t m) {
 	if(m > n) return;
 	
+	/*
 	// Search through the haystack
 	for(int iterX = 0; iterX <= n-m; ++iterX) {
 		int iterY;
@@ -79,6 +80,16 @@ static inline void matchStringsBoolean(char *res,
 		if(iterY == m) {
 			res[iterX] = (char) 1;
 		}
+	}
+	*/
+	
+	if(m == n) {
+		res[0] = (char) !!compareFirst(haystack, needle, m);
+		return;
+	}
+	
+	for(int i = 0; i < n-m; ++i) {
+		res[i] = (char) !!compareFirst(&haystack[i], needle, m);
 	}
 }
 
