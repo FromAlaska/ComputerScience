@@ -14,6 +14,7 @@
 #include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 // Prime numbers
 #define Q            ((uint64_t) (18446744073709551359ull))    /* 2^64 - 257 is prime */
@@ -119,12 +120,12 @@ static inline uint64_t mulModuloChar(uint64_t a, unsigned char b) {
 
 // hash(char *, size_t)
 // Computes the hash of the given text and size.
-static inline uint64_t hash(const unsigned char *text, size_t m) {
+static inline uint64_t hashHaystack(const unsigned char *text, size_t m) {
 	uint64_t i;
 	uint64_t hash = INITIAL_VALUE; // Initial value = Bernstein's hash function
 	for(i = 0; i < m-1; i++) {
 		printf("value: %s \n", &text[i]);
-		hash = ((hash * 3) + (uint64_t) &text[i]) % Q;
+		hash = ((hash * Q) + (uint64_t) &text[i]) % Q;
 	} 
 	return hash;
 }
@@ -147,6 +148,23 @@ static inline int compareFirst(const unsigned char *str1,
 	}
 	return 1;
 }
+
+static inline uint64_t hashfdsa(char *str) {
+	uint64_t sum = 0;
+	while(*str != '\0') {
+		sum += (int) *str++;
+	}
+	return sum % Q;
+}
+
+static inline uint64_t hash(char *str, size_t m) {
+	uint64_t sum = 0;
+	for(int i = 0; i < m; ++i) {
+		sum = (TWO64_MOD_Q*sum + str[i])%Q;
+	}
+	return sum;
+}
+
 static void matchStringsDoWork(char *res,
 			       const unsigned char *haystack,
 			       size_t n,
@@ -154,15 +172,22 @@ static void matchStringsDoWork(char *res,
 			       size_t m) {
   if(m>n) return;
   
-  int i, j;
+  int i;
   uint64_t haystack_hash = 0;
   uint64_t needle_hash = 0;
   
   // Compute the first hash for the needle
-  needle_hash = updateHash(needle_hash, (uint64_t) &needle[0], (uint64_t) &needle[m]);
-  printf("Computed hash for needle: %ld [%ld]\n", needle_hash, n);
-  haystack_hash = updateHash(haystack_hash, (uint64_t) &haystack[0], (uint64_t) &haystack[m]);
+  needle_hash = hash(needle, m);
+  printf("Computed hash for needle: %ld [%ld]\n", needle_hash, m);
+  haystack_hash = hash(haystack, m);
   printf("Computed hash for haystack: %ld [%ld]\n", haystack, n);
+  
+  for(i = 0; i < n-m; ++i) {
+  	if(haystack_hash == needle_hash) {
+  		res[i] = (char) compareFirst(&haystack[i], needle, m);
+  	}
+  	haystack_hash = updateHash(haystack_hash, haystack[i], haystack[i + m]);
+  }
 }
 
 void matchStrings(char *res, const char *haystack, const char *needle) {

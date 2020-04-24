@@ -51,37 +51,12 @@ static inline int compareFirst(const unsigned char *str1,
 
 // Similar to what was shown in class
 // Looks through the indices i and makes a list of "booleans".
-/*
-	Best case:
-				Haystack: aab
-				Needle: aab
-	Worst case:
-				Haystack: aaaaaaaaaaaaaa
-				Needle: a
-*/
 static inline void matchStringsBoolean(char *res,
 										const unsigned char *haystack,
 										size_t n,
 										const unsigned char *needle,
 										size_t m) {
 	if(m > n) return;
-	
-	/*
-	// Search through the haystack
-	for(int iterX = 0; iterX <= n-m; ++iterX) {
-		int iterY;
-		
-		// Compare the haystack at iterX with the pattern
-		for(iterY = 0; iterY < m; ++iterY) {
-			// Returns false if the two strings don't equal each other;
-			if(haystack[iterX + iterY] != needle[iterY]) {res[iterX] = (char) 0; break;} 
-		}
-		// Returns true if the two strings equal each other.
-		if(iterY == m) {
-			res[iterX] = (char) 1;
-		}
-	}
-	*/
 	
 	if(m == n) {
 		res[0] = (char) !!compareFirst(haystack, needle, m);
