@@ -15,6 +15,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 // Prime numbers
 #define Q            ((uint64_t) (18446744073709551359ull))    /* 2^64 - 257 is prime */
@@ -118,23 +119,13 @@ static inline uint64_t mulModuloChar(uint64_t a, unsigned char b) {
   return mulModulo(a, ((uint64_t) b));
 }
 
-// hash(char *, size_t)
-// Computes the hash of the given text and size.
-static inline uint64_t hashHaystack(const unsigned char *text, size_t m) {
-	uint64_t i;
-	uint64_t hash = INITIAL_VALUE; // Initial value = Bernstein's hash function
-	for(i = 0; i < m-1; i++) {
-		printf("value: %s \n", &text[i]);
-		hash = ((hash * Q) + (uint64_t) &text[i]) % Q;
-	} 
-	return hash;
-}
-
 // updateHash(int, int, int)
 // updateHash(current hash, &haystack[i], &haystack[i+m])
 // updates the next hash.
-static inline uint64_t updateHash(uint64_t hash, uint64_t b_i, uint64_t b_i_plus_m) {
-	return addModulo(b_i_plus_m, mulModuloBase(subModulo(hash,mulModulo(b_i,mulModuloBase(b_i_plus_m))))) % Q;
+static inline uint64_t updateHash(uint64_t hash, uint64_t b_i, uint64_t b_i_plus_m, uint64_t k) {
+	//return addModulo(b_i_plus_m, mulModuloBase(subModulo(hash,mulModulo(b_i,k)))) % Q;
+	//return addModulo(b_i_plus_m, mulModuloBase(subModulo(hash, b_i)))%Q;
+	return ((!!getBase()*(hash - b_i)*k)+b_i_plus_m)%Q;
 }
 
 // compareFirst()
@@ -157,10 +148,10 @@ static inline uint64_t hashfdsa(char *str) {
 	return sum % Q;
 }
 
-static inline uint64_t hash(char *str, size_t m) {
+static inline uint64_t hash(const unsigned char *str, size_t m) {
 	uint64_t sum = 0;
 	for(int i = 0; i < m; ++i) {
-		sum = (TWO64_MOD_Q*sum + str[i])%Q;
+		sum = (!!getBase()*sum + (uint64_t)str[i])%Q;
 	}
 	return sum;
 }
@@ -175,18 +166,56 @@ static void matchStringsDoWork(char *res,
   int i;
   uint64_t haystack_hash = 0;
   uint64_t needle_hash = 0;
+  uint64_t degree_k_subtract_one = ((uint64_t) pow(!!getBase(),m-1))%Q;
   
   // Compute the first hash for the needle
   needle_hash = hash(needle, m);
   printf("Computed hash for needle: %ld [%ld]\n", needle_hash, m);
-  haystack_hash = hash(haystack, m);
-  printf("Computed hash for haystack: %ld [%ld]\n", haystack, n);
   
-  for(i = 0; i < n-m; ++i) {
+  haystack_hash = hash(haystack, m);
+  printf("Computed hash for haystack: %ld [%ld]\n", haystack_hash, m);
+  
+  /*for(i = 0; i < n-m; ++i) {
   	if(haystack_hash == needle_hash) {
-  		res[i] = (char) compareFirst(&haystack[i], needle, m);
+  		//res[i] = (char) compareFirst(&haystack[i], needle, m);
+  		if(haystack[i] == needle[0]) {
+  			//res[i] = (char) compareFirst(&haystack[i], needle, m);
+  			for(int j = 0; j < m; ++i) {
+  				if(haystack[i+j] != needle[j]) {
+  					res[i] = 0;
+  					break;
+  				}
+  				if(j == m-1) {
+  					res[i] = 1;
+  				}
+  			}
+  		}
+  		
+  		if(i < n-m) {
+  			printf("haystack[%ld]",haystack[i]);
+  			haystack_hash = updateHash(haystack_hash, 
+  										(uint64_t) &haystack[i], 
+  										(uint64_t) &haystack[i + m],
+  										degree_k_subtract_one);
+  	  }
+  	  //res[i] = (char) !!compareFirst(&haystack[i], needle, m);
   	}
-  	haystack_hash = updateHash(haystack_hash, haystack[i], haystack[i + m]);
+  }*/
+  
+  if(needle_hash == haystack_hash) {
+  	res[0] = (char) !!compareFirst(haystack, needle, m);
+	return;
+  }
+  
+  for(i = 0; i < n-m -1; ++i) {
+  	if(needle_hash == haystack_hash) {
+  		res[i] = (char) !!compareFirst(&haystack[i], needle, m);
+  	}
+  	//printf("haystack[%ld]\n",haystack[i]);
+  	haystack_hash = updateHash(haystack_hash, 
+  										(uint64_t) haystack[i], 
+  										(uint64_t) haystack[i + m],
+  										degree_k_subtract_one);
   }
 }
 
