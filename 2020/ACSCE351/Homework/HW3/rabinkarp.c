@@ -125,6 +125,7 @@ static inline uint64_t mulModuloChar(uint64_t a, unsigned char b) {
 static inline uint64_t updateHash(uint64_t hash, uint64_t b_i, uint64_t b_i_plus_m, uint64_t k) {
 	//return addModulo(b_i_plus_m, mulModuloBase(subModulo(hash,mulModulo(b_i,k)))) % Q;
 	//return addModulo(b_i_plus_m, mulModuloBase(subModulo(hash, b_i)))%Q;
+	//return mulModulo(Q,addModulo(b_i_plus_m, mulModuloBase(subModulo(hash, b_i))));
 	return ((!!getBase()*(hash - b_i)*k)+b_i_plus_m)%Q;
 }
 
@@ -170,37 +171,10 @@ static void matchStringsDoWork(char *res,
   
   // Compute the first hash for the needle
   needle_hash = hash(needle, m);
-  printf("Computed hash for needle: %ld [%ld]\n", needle_hash, m);
+  //printf("Computed hash for needle: %ld [%ld]\n", needle_hash, m);
   
   haystack_hash = hash(haystack, m);
-  printf("Computed hash for haystack: %ld [%ld]\n", haystack_hash, m);
-  
-  /*for(i = 0; i < n-m; ++i) {
-  	if(haystack_hash == needle_hash) {
-  		//res[i] = (char) compareFirst(&haystack[i], needle, m);
-  		if(haystack[i] == needle[0]) {
-  			//res[i] = (char) compareFirst(&haystack[i], needle, m);
-  			for(int j = 0; j < m; ++i) {
-  				if(haystack[i+j] != needle[j]) {
-  					res[i] = 0;
-  					break;
-  				}
-  				if(j == m-1) {
-  					res[i] = 1;
-  				}
-  			}
-  		}
-  		
-  		if(i < n-m) {
-  			printf("haystack[%ld]",haystack[i]);
-  			haystack_hash = updateHash(haystack_hash, 
-  										(uint64_t) &haystack[i], 
-  										(uint64_t) &haystack[i + m],
-  										degree_k_subtract_one);
-  	  }
-  	  //res[i] = (char) !!compareFirst(&haystack[i], needle, m);
-  	}
-  }*/
+  //printf("Computed hash for haystack: %ld [%ld]\n", haystack_hash, m);
   
   if(needle_hash == haystack_hash) {
   	res[0] = (char) !!compareFirst(haystack, needle, m);
