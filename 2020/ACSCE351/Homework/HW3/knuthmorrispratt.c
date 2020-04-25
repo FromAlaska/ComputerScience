@@ -18,6 +18,8 @@
 #include <stdint.h>
 #include <stdio.h>
 
+#define TWO9_MOD_Q   ((uint64_t) (512))                        /* 2^9 mod Q */
+
 // Returns the length of the string
 // Stolen from Dr. Lauter in rabinkarp.c
 static size_t length(const char *str) {
@@ -38,48 +40,78 @@ static inline int compareFirst(const unsigned char *str1,
 	return 1;
 }
 
+
 // makeTable
-static inline uint64_t* makeTable(const unsigned char *str, size_t m) {
+static inline void AllocateTable(uint64_t table[], 
+										const unsigned char *str, 
+										size_t m) {
 	
 	uint64_t traceback = 0;
-	uint64_t table[m];
 	table[0] = -1;
+	int pos = 0;
 	
-	for(int i = 0; i <= m; ++i) {
-		if(str[i] == str[traceback]) {
-			table[i] = table[traceback];
+	while(pos < m) {
+		printf("position = %d\n", pos);
+		printf("str_pos = %d\n", str[pos]);
+		printf("str_traceback = %d\n", str[traceback]);
+		if(str[pos] == str[traceback]) {
+			printf("Table. They are equal\n");
+			table[pos] = table[traceback];
 		}
 		else {
-			table[i] = traceback;
+			printf("Table. They aren't equal\n");
+			table[pos] = traceback;
+			printf("table traceBack = [%ld]\n", table[traceback]);
+			printf("TRACEBACK (1) = %ld\n", traceback);
 			traceback = table[traceback];
-			while((traceback >= 0 && str[i]) != str[traceback]) {
+			printf("TRACEBACK (2) = %ld\n", traceback);
+			while((traceback >= 0 && str[pos]) != str[traceback]) {
+				printf("TRACEBACK (3) = %ld\n", traceback);
+				printf("table traceBack = [%ld]\n", table[traceback]);
 				traceback = table[traceback];
 			}
-			table[i+1] = traceback; 
 		}
+		printf("Went outside the loops\n\n");
+		pos += 1;
+		traceback += 1;
 	}
-	return table;
+	table[pos] = traceback;
+	printf("################################################################## DONE ###########################################################\n");
 }
+
 
 static inline void matchStringsDoSomething(char *res,
 										const unsigned char *haystack,
 										size_t n,
 										const unsigned char *needle,
 										size_t m) {
-	uint64_t * table = makeTable(needle,m);
-	int haystackIndex, needleIndex = 0;
-	while(haystackIndex < m) {
-		if(needleIndex == needle[needleIndex]) {
+	uint64_t table [TWO9_MOD_Q];
+	AllocateTable(table,needle,n);
+	int haystackIndex = 0;
+	int needleIndex = 0;
+	int numberOfPositions = 0;
+	while(haystackIndex < n) {
+		//printf("haystackIndex = [%d]\n",haystackIndex);
+		//printf("needleIndex = [%d]\n",needleIndex);
+		if(haystack[haystackIndex] == needle[needleIndex]) {
 			haystackIndex += 1;
 			needleIndex += 1;
 			if(needleIndex == m) {
-				res[haystackIndex - needleIndex] = (char) 1;
+				res[numberOfPositions] = (char) 1;
+				printf("res[%d] = %d\n", numberOfPositions, res[numberOfPositions]);
+				numberOfPositions += 1;
+				//printf("needle position = %ld \n", (uint64_t) table[needleIndex]);
 				needleIndex = table[needleIndex];
-			}			
+				//printf("true: [%d]\n",res[numberOfPositions]);
+			}
 		}
-		else {
+		else { 
+			if(needleIndex != m) {
+				res[numberOfPositions] = (char) 0;
+				printf("res[%d] = %d\n", numberOfPositions, res[numberOfPositions]);
+			}
 			needleIndex = table[needleIndex];
-			if(needleIndex == -1) {
+			if(needleIndex < 0) {
 				haystackIndex += 1;
 				needleIndex += 1;
 			}
