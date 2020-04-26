@@ -1,0 +1,27 @@
+Jim Samson
+April 25, 2020
+CSCE 351 Automata, Algorithms, and Complexity.
+
+Required software:
+ - Python2.x (For random text generation)
+ - gcc (Makefile is a bit picky for compiling code)
+ - Any unix/linux that can run shell scripts.
+ - make (I used 'make' to manage test scripts)
+
+This whole program is used to solve search algorithms for CSCE 351 Automata, Algorithms, and Complexity.
+Notice, run.sh is deprecated. Do not use it.
+
+To use this program, I would suggest compiling the code with the make files that I've created. 
+Notice that there are three bash programs that I've created. Each of which contains boilerplate code to test my algorithms.
+Each bash file (naiveSearch.sh, rabinSearch.sh, and knuthSearch.sh) are all identical, it would've been easier to not repeat myself,
+but because of the short amount of time that I have, it makes sense to use them.
+The idea of using the bash codes will provide instructions, so I would try running naiveSearch.sh first.
+
+Anyways, each search algorithm tests four different files, each with different complexity.
+
+The first file that you can test x search algorithm is the beeOnlyScript file. Which only contains the word "bee" in it.
+The second file that you can test x search algorithm is the abOnlyScript file. Which has various reg expressions that look like [a]*b
+The third file that you can test x search algorithm is the BeeMovieScript file. Which contains the entire script for the movie titled "Bee Movie"
+The fourth file that you can test x search algorithm is the randomlyGeneratedString file, which can be generated using the "make randchar" script. Which contains a randomly generated string.
+
+
