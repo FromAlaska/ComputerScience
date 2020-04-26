@@ -18,5 +18,8 @@ knuth: $(TEST) ./src/kmp.c
 randomchar:
 	$(PY) ./src/randomcharactergenerator.py
 
+multipleoccurance:
+	$(PY) ./src/multipleOccuranceAgenerator.py
+
 clean:
 	rm -rf naive rabin knuth
