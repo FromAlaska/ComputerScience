@@ -15,7 +15,7 @@ while true; do
         2 ) ./naive ./Scripts/abScript ab;;
         3 ) ./naive ./Scripts/BeeMovieScript bee;;
         4 ) read -p "Put in string to search: " str; ./naive ./Scripts/randomlyGeneratedString $str;;
-        5 ) rm -rf ./Scripts/randomlyGeneratedString && touch ./Scripts/randomlyGeneratedString ; echo "rewriting randomly generated string"; python2 ./randomcharactergenerator.py;;
+        5 ) rm -rf ./Scripts/randomlyGeneratedString && touch ./Scripts/randomlyGeneratedString ; echo "rewriting randomly generated string"; python2 ./src/randomcharactergenerator.py;;
         6 ) exit;;
         * ) echo "Please answer one of the following options. (6) to exit";;
     esac

@@ -1,22 +1,22 @@
 CC = gcc
 PY = python2
 CFLAGS = -Wall -O3 -march=native
-TEST = test.c
+TEST = ./src/test.c
 PROGS = naive rabin knuth
 	
 all: $(PROGS)
 
-naive: $(TEST) MatchStrings.c
+naive: $(TEST) ./src/MatchStrings.c
 	$(CC) -o $@ $^ $(CFLAGS)
 
-rabin: $(TEST) rabinkarp.c
+rabin: $(TEST) ./src/rabinkarp.c
 	$(CC) -o $@ $^ $(CFLAGS)
 
-knuth: $(TEST) kmp.c
+knuth: $(TEST) ./src/kmp.c
 	$(CC) -o $@ $^ $(CFLAGS)
 	
 randomchar:
-	$(PY) randomcharactergenerator.py
+	$(PY) ./src/randomcharactergenerator.py
 
 clean:
 	rm -rf naive rabin knuth
